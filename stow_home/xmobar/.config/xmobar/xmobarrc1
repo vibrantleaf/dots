@@ -1,0 +1,26 @@
+-- http://projects.haskell.org/xmobar/
+-- install xmobar with these flags: --flags="with_alsa" --flags="with_mpd" --flags="with_xft"  OR --flags="all_extensions"
+-- you can find weather location codes here: http://weather.noaa.gov/index.html
+
+Config { font = "xft:FontAwesome:pixelsize=16:antialias=true:hinting=true"
+                           ]
+       , bgColor = "#282c34"
+       , fgColor = "#ff6c6b"
+       , position = Static { xpos = 0 , ypos = 0, width = 1920, height = 30 }
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , commands = [
+                    , Run Cpu ["-L","3","-H","50",
+                               "--normal","green","--high","red"] 10
+                    , Run Network "enp9s0" ["-t", " quality "] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Date "%a,%_d-%b-%Y %H:%M" "date" 10
+                    , Run Locks
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " 󰻠 %cpu% <fc=#bd00bd>|</fc> 󰍛 %memory% <fc=#bd00bd>|</fc> 󰳲 %bright% <fc=#bd00bd>|</fc>  }                      <fc=#bd00bd>󰸗%date%</fc>
+                    {%locks% <fc=#bd00bd>|</fc> 󰆤 %LIBR%"
+       }

@@ -1,0 +1,43 @@
+auto-reload yes
+
+# keybinds
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+bind-key r reload
+bind-key R reload-all
+
+
+
+# Colors
+color listnormal		white   black
+color listfocus			color202  white  bold
+color listnormal_unread	white black bold
+color listfocus_unread	black white bold
+color info				yellow  blue   bold
+color article			white   black
+
+
+
+# browser / mpv programs
+browser "lynx"
+macro , open-in-browser
+macro o set browser "lynx" ; open-in-browser ; toggle-article-read "read"
+macro y set browser "setsid nohup devour mpv " ; open-in-browser ; toggle-article-read "read"
+
+

@@ -1,0 +1,139 @@
+#!/bin/sh
+# BSPWM configuration
+#bspc config border_radius       2
+bspc config border_width         3
+bspc config window_gap           5
+bspc config top_padding          0
+bspc config bottom_padding       0
+bspc config left_padding         0
+bspc config right_padding        0
+bspc config single_monocle       false
+bspc config click_to_focus       true
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_by_distance    false
+bspc config focus_follows_pointer false
+bspc config history_aware_focus  true
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors false
+bspc config external_rules_command "$(bash -C $HOME/.config/bspwm/external_rules)"
+
+# scheme
+bspc config automatic_scheme    longest_side
+
+#BSPWM coloring
+bspc config normal_border_color		"#2E3440"
+bspc config active_border_color		"#2E3440"
+bspc config focused_border_color	"#B48EAD"
+bspc config presel_feedback_color	"#B48EAD"
+bspc config urgent_border_color 	"#dd2727"
+
+# Single monitor
+#bspc monitor -d I II III IV V VI VII VIII IX X
+
+# Dual monitor
+#bspc monitor DP-0 -d I II III IV V
+#bspc monitor HDMI-0 -d VI VII VIII IX X
+
+# Triple monitor
+bspc monitor DP-0 -d I II III
+bspc monitor DP-4 -d IV V VI VII
+bspc monitor HDMI-0 -d VIII IX X
+
+bsp-layout set tall {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+# window rules
+bspc rule -a *:* state=tiled
+bspc rule -a wine state=fullscreen
+bspc rule -a Arandr state=floating
+bspc rule -a feh state=floating
+bspc rule -a Galculator state=floating
+bspc rule -a Nitrogen state=floating
+bspc rule -a Oblogout state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a rofi state=floating sticky=on
+bspc rule -a Gnome-disks state=floating
+bspc rule -a Xfce4-settings-manager state=floating
+bspc rule -a mpv desktop='^9'  follow=on
+bspc rule -a discord desktop='^1' follow=off
+bspc rule -a Discord desktop='^1' follow=off
+bspc ruie -a Keepassxc desktop='^5' follow=off
+bspc ruie -a Bitwarden desktop='^5' follow=off
+bspc rule -a Lxappearance state=floating
+bspc rule -a Sxiv state=floating
+bspc rule -a Xfce4-Task-Manager state=floating
+bspc rule -a lsession state=floating
+bspc rule -a lxpolkit state=floating
+bspc rule -a Blueberry.py:* state=floating
+bspc rule -a lxpolkit state=floating
+bspc rule -a Pcmanfm:* state=floating
+bspc rule -a Ghb:* state=floating
+bspc rule -a Transmission-gtk state=floating
+bspc rule -a Transmission-gtk:* state=floating
+
+# steam rules
+bspc rule -a Steam 	desktop='^7' follow=off
+
+# terminal app rules
+bspc rule -a Alacritty:pulsemixer state=floating
+bspc rule -a Alacritty:newsboat state=floating
+bspc rule -a Alacritty:nnn state=floating
+bspc rule -a Alacritty:htop state=floating
+
+# virt manager
+bspc rule -a Virt-manager state=floating
+bspc rule -a qemu-system-i386 state=floating
+bspc rule -a qemu-system-x86_64 state=floating
+
+# load session
+if [ -e "$BSPWM_STATE" ] ; then
+	bspc wm --load-state "$BSPWM_STATE"
+	bspc wm --adopt-orphans
+	rm "$BSPWM_STATE"
+fi
+
+# autostart
+bash -c $HOME/.config/autostart.sh
+
+# cursor fix
+xsetroot -cursor_name left_ptr
+
+# keyboard daemon
+sxhkd &
+
+
+# steam and gimp fix
+wid=$1
+class=$2
+instance=$3
+
+if xprop -id $wid | grep "_NET_WM_WINDOW_TYPE_DIALOG";then
+	echo "state=floating"
+elif [ "$instance" = Steam ] ; then
+	title=$(xprop -id $wid | grep "^WM_NAME" | awk -F " = " '{print $2}')
+	case "$title" in
+		*" - Steam"*|*"Product Activation"*|*"Settings"*)
+			echo "state=floating"
+			echo "center=on"
+			;;
+		*)
+			echo "state=tiled"
+	esac
+elif [ "$instance" = gimp ]; then
+	title=$(xprop -id $wid | grep "^WM_NAME" | awk -F " = " '{print $2}')
+	case "$title" in
+		*"GIMP Startup"*)
+			echo "state=floating"
+			echo "center=on"
+			;;
+		*)
+			echo "state=tiled"
+	esac
+fi
+
+

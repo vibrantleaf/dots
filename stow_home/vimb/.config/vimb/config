@@ -1,0 +1,48 @@
+# Command with placeholder '%s' called if form field is opened with $EDITOR to
+# spawn the editor-like `x-terminal-emulator -e vim %s'.
+set editor-command=st -e vim %s
+
+# Enable or disable the spell checking feature.
+set spell-checking=true
+
+# Set comma separated list of spell checking languages to be used for
+# spell checking.
+set spell-checking-languages=en
+
+# Map page zoom in normal mode to keys commonly used across applications
+# + (zoom in), - (zoom out), = (zoom reset)
+nmap + zI
+nmap - zO
+nmap = zz
+
+# dark mode
+#dark-mode 1
+
+# Enable or disable support for WebGL on pages.
+set webgl=true
+
+### shotcuts
+
+# home
+shortcut-add home=https://start.duckduckgo.com/
+
+# search
+nnoremap yt=http://www.youtube.com/results?search_query=$0
+shortcut-add sp=https://www.startpage.com/do/dsearch?query=$0
+
+# stores
+nnoremap :gog=:o https://www.gog.com/
+nnoremap :steam=:o https://store.steampowered.com/
+nnoremap :itch=:o https://itch.io/
+nnoremap :hum=:o https://www.humblebundle.com/
+
+
+
+# mpv
+## open hint then open link with mpv
+set x-hint-command=:sh mpv <C-R>;
+### rebind above to ;y
+nnoremap y ;x
+
+## open the current page in mpv
+nnoremap Y :sh mpv $VIMB_URI

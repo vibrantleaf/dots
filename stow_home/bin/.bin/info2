@@ -1,0 +1,2 @@
+#!/bin/zsh
+notify-send -a PC_Info -u normal "$(info)"

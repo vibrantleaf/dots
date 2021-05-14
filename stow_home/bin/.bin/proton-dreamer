@@ -1,0 +1,15 @@
+#!/bin/sh
+mkdir -p ~/.steam/root/compatibilitytools.d
+cd ~/.local/share/Steam/compatibilitytools.d/ || cd ~/.steam/root/compatibilitytools.d/
+
+# https://github.com/dreamer/boxtron
+curl -L https://github.com/dreamer/boxtron/releases/download/v0.5.4/boxtron.tar.xz | tar xJf -
+printf  "Boxtron Dependencies \n dosbox inotify-tools timidity++ fluid-soundfont-gm"
+
+# https://github.com/dreamer/roberta
+curl -L https://github.com/dreamer/roberta/releases/download/v0.1.0/roberta.tar.xz | tar xJf -
+printf "Roberta Dependencies \n scummvm inotify-tools"
+
+# https://github.com/dreamer/luxtorpeda
+curl -L https://luxtorpeda.gitlab.io/luxtorpeda/master/luxtorpeda.tar.xz | tar xJf -
+printf "Luxtorpeda Dependencies \n openssl-devel"

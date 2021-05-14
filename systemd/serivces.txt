@@ -1,0 +1,10 @@
+libvirtd
+ufw
+NetworkManger
+fail2ban
+sshd
+polkit
+udiks2
+ananicy
+nohang-desktop
+org.cups.cupsd

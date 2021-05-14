@@ -1,0 +1,26 @@
+#!/bin/bash
+printf "do you want to clear yay cache [y/n]\n"
+read yay
+if [ $yay = y ] ;then
+    printf "clearing yay cache\n"
+    rm -rf $HOME/.cache/yay/*
+else
+    printf "skiping clearing yay cache \n"
+fi
+printf "doo you want to clear ccache cache [y/n] \n"
+read ccache
+if [ $ccache = y ] ;then
+    printf "clearing ccache cache\n"
+    ccache -C
+else
+    printf "skiping ccache \n"
+fi
+printf "do you want to clear pacman ccashe [y/n] \n"
+read pacman
+if [ $pacman = y ] ;then
+    printf "clearing pacman cache\n"
+    sudo pacman -Scc
+else
+    printf "skiped clearing pacman cache"
+fi
+exit 1

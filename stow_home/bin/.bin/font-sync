@@ -1,0 +1,4 @@
+#!/bin/sh
+#/usr/bin/cp -ruv $HOME/.fonts/* $HOME/Nextcloud/fonts/custom
+rsync -av /usr/share/fonts/ $HOME/Nextcloud/fonts/custom/
+

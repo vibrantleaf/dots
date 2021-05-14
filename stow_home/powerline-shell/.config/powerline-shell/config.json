@@ -1,0 +1,34 @@
+{
+  "segments": [
+  {
+  "type": "stdout",
+  "command": ["echo", "(っ◔◡◔)っ"],
+  "fg_color": 7,
+  "bg_color": 31
+},
+  {
+  "type": "stdout",
+  "command": ["echo", "user"],
+  "fg_color": 7,
+  "bg_color": 161
+},
+  {
+  "type": "stdout",
+  "command": ["echo", "Julia"],
+  "fg_color": 8,
+  "bg_color": 7
+},
+  {
+  "type": "stdout",
+  "command": ["echo", "OwO"],
+  "fg_color": 7,
+  "bg_color": 161
+},
+    {
+    "type": "cwd",
+    "fg_color": 7,
+    "bg_color": 75
+},
+    "root"
+  ]
+}

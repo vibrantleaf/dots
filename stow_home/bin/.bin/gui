@@ -1,0 +1,11 @@
+#!/bin/bash
+# auto start console TDM on login on /dev/tty1
+#if [[ $(tty) = /dev/tty1 ]]; then
+#    exec tdm
+#fi
+
+# alt to above
+# auto startx on /dev/tty1
+if [[ $(tty) = /dev/tty1 ]]; then
+    exec startx
+fi

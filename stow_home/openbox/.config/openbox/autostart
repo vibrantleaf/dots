@@ -1,0 +1,4 @@
+#!/bin/bash
+$HOME/.config/autostart.sh
+sleep 0.5s
+tint2

@@ -1,0 +1,110 @@
+Xft.dpi: 84
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgba
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+XTerm*renderFont: true
+XTerm*faceName: xft:FiraCode NF
+XTerm*faceSize: 13
+XTerm*utf8: 2
+XTerm*locale: true
+XTerm.vt100.translations: #override \n\
+  Ctrl <Key> -: smaller-vt-font() \n\
+  Ctrl <Key> +: larger-vt-font()
+
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+XTerm*loginshell: true
+
+! I like a LOT of scrollback...
+XTerm*savelines: 16384
+
+! double-click to select whole URLs :D
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+URxvt*imLocale: en_US.UTF-8
+URxvt*termName: rxvt-unicode-256color
+Urxvt*buffered: false
+URxvt.intensityStyles: false
+URxvt.font:xft:FiraCode Nerd Font:size13,
+URxvt.saveLines: 2000
+URxvt.scrollBar: false
+URxvt.cursorColor: white
+
+!! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select,clipboard
+URxvt.colorUL: #4682B4
+!! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: urxvtc -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.url-select.underline: true
+!! keyboard-select:
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!! resize-font
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger:  C-Up
+!! Matcher
+URxvt.url-launcher:	urxvtc -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
+URxvt.matcher.button: 1
+!!clipboard
+URxvt.keysym.M-v: eval:paste_clipboard
+URxvt.keysym.M-C: eval:selection_to_clipboard
+URxvt*depth: 32
+!!URxvt*background: rgba:0000/0000/0000/c100
+
+
+
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
+
+
+
+
+!! those two are for rxvt
+"\e[7~":beginning-of-line
+"\e[8~":end-of-line
+
+
+
+! special
+*.foreground:   #ebf8ff
+*.background:   #161b1d
+*.cursorColor:  #ebf8ff
+
+! black
+*.color0:       #161b1d
+*.color8:       #5a7b8c
+
+! red
+*.color1:       #d22d72
+*.color9:       #d22d72
+
+! green
+*.color2:       #568c3b
+*.color10:      #568c3b
+
+! yellow
+*.color3:       #8a8a0f
+*.color11:      #8a8a0f
+
+! blue
+*.color4:       #257fad
+*.color12:      #257fad
+
+! magenta
+*.color5:       #5d5db1
+*.color13:      #5d5db1
+
+! cyan
+*.color6:       #2d8f6f
+*.color14:      #2d8f6f
+
+! white
+*.color7:       #7ea2b4
+*.color15:      #7ea2b4
+
