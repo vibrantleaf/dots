@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>KvAdapta</name>
+    <name>Dark-Numix</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -57,12 +57,12 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>sans</name>
-      <size>8</size>
+      <name>FiraCode Nerd Font Light</name>
+      <size>13</size>
       <!-- font size in points -->
-      <weight>bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
+      <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
@@ -179,70 +179,70 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
+    <keybind key="W-Left">
       <action name="GoToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="W-Right">
       <action name="GoToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Up">
+    <keybind key="W--Up">
       <action name="GoToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Down">
+    <keybind key="W-Down">
       <action name="GoToDesktop">
         <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="W-Left">
       <action name="SendToDesktop">
         <to>left</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="W-S-Right">
       <action name="SendToDesktop">
         <to>right</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="W-S-Up">
       <action name="SendToDesktop">
         <to>up</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="W-S-Down">
       <action name="SendToDesktop">
         <to>down</to>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-F1">
+    <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
       </action>
     </keybind>
-    <keybind key="W-F2">
+    <keybind key="W-2">
       <action name="GoToDesktop">
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="W-F3">
+    <keybind key="W-3">
       <action name="GoToDesktop">
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="W-F4">
+    <keybind key="W-4">
       <action name="GoToDesktop">
         <to>4</to>
       </action>
@@ -251,7 +251,7 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
-    <keybind key="A-F4">
+    <keybind key="W-S-c">
       <action name="Close"/>
     </keybind>
     <keybind key="A-Escape">
@@ -259,15 +259,11 @@
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="A-space">
-      <action name="ShowMenu">
-        <menu>client-menu</menu>
-      </action>
-    </keybind>
-    <!-- Take a screenshot of the current window with scrot when Alt+Print are pressed -->
-    <keybind key="A-Print">
-      <action name="Execute">
-        <command>scrot -s</command>
+    <keybind key="W-S-Enter">
+      <action name="RofiDrun">
+          <command>
+            Rofi -show drum -show-icons
+          </command>
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
@@ -331,12 +327,6 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
-    <!-- Launch scrot when Print is pressed -->
-    <keybind key="Print">
-      <action name="Execute">
-        <command>scrot</command>
-      </action>
-    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -362,9 +352,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="A-Right" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
+        <action name="Focus"/><command>systemctl hibernate</command>
       </mousebind>
       <mousebind button="A-Right" action="Drag">
         <action name="Resize"/>
@@ -676,8 +664,6 @@
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <!-- system menu files on Debian systems -->
-    <file>/var/lib/openbox/debian-menu.xml</file>
     <file>menu.xml</file>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the

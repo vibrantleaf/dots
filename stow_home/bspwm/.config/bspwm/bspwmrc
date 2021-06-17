@@ -22,7 +22,7 @@ bspc config pointer_action3 resize_corner
 bspc config remove_disabled_monitors true
 bspc config merge_overlapping_monitors false
 bspc config external_rules_command "$(bash -C $HOME/.config/bspwm/external_rules)"
-
+xsetroot -cursor_name left_ptr &
 # scheme
 bspc config automatic_scheme    longest_side
 
@@ -67,7 +67,7 @@ bspc ruie -a Bitwarden desktop='^5' follow=off
 bspc rule -a Lxappearance state=floating
 bspc rule -a Sxiv state=floating
 bspc rule -a Xfce4-Task-Manager state=floating
-bspc rule -a lsession state=floating
+bspc rule -a LXSession:* state=floating
 bspc rule -a lxpolkit state=floating
 bspc rule -a Blueberry.py:* state=floating
 bspc rule -a lxpolkit state=floating
@@ -77,7 +77,7 @@ bspc rule -a Transmission-gtk state=floating
 bspc rule -a Transmission-gtk:* state=floating
 
 # steam rules
-bspc rule -a Steam 	desktop='^7' follow=off
+bspc rule -a Steam 	desktop='^10' follow=off
 
 # terminal app rules
 bspc rule -a Alacritty:pulsemixer state=floating
@@ -97,43 +97,13 @@ if [ -e "$BSPWM_STATE" ] ; then
 	rm "$BSPWM_STATE"
 fi
 
-# autostart
-bash -c $HOME/.config/autostart.sh
-
 # cursor fix
 xsetroot -cursor_name left_ptr
 
 # keyboard daemon
 sxhkd &
 
-
-# steam and gimp fix
-wid=$1
-class=$2
-instance=$3
-
-if xprop -id $wid | grep "_NET_WM_WINDOW_TYPE_DIALOG";then
-	echo "state=floating"
-elif [ "$instance" = Steam ] ; then
-	title=$(xprop -id $wid | grep "^WM_NAME" | awk -F " = " '{print $2}')
-	case "$title" in
-		*" - Steam"*|*"Product Activation"*|*"Settings"*)
-			echo "state=floating"
-			echo "center=on"
-			;;
-		*)
-			echo "state=tiled"
-	esac
-elif [ "$instance" = gimp ]; then
-	title=$(xprop -id $wid | grep "^WM_NAME" | awk -F " = " '{print $2}')
-	case "$title" in
-		*"GIMP Startup"*)
-			echo "state=floating"
-			echo "center=on"
-			;;
-		*)
-			echo "state=tiled"
-	esac
-fi
+# autostart
+bash -c $HOME/.config/autostart.sh &
 
 

@@ -1,64 +1,55 @@
-autoload -U colors && colors
-PROMPT="%B[%F{magenta}%n%F{yellow}@%F{cyan}%M %F{white}%~]%F{green}$ %f%b"
+export PATH=$HOME/.bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export MANPATH="/usr/local/man:$MANPATH"
+export ZSH="/home/julia/.oh-my-zsh"
+export ARCHFLAGS="-arch x86_64"
 
-# zsh plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autocompletions/zsh-autocomplete.zsh 2>/dev/null
-plugins=(zsh-autocompletions zsh-autosuggestions zsh-highlighting)
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="alanpeabody"
 
-# tab complete
-autoload -U compinit
-zstyle ':completion:*' menu select
-#zstyle zsh/comlist
-#compint     # Include hiddenfiles
-#_comp_options+=(globdots)
+CASE_SENSITIVE="true"
+
+HYPHEN_INSENSITIVE="true"
+
+DISABLE_AUTO_UPDATE="true"
+
+DISABLE_UPDATE_PROMPT="true"
+
+# export UPDATE_ZSH_DAYS=13
+
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# DISABLE_LS_COLORS="true"
+
+# DISABLE_AUTO_TITLE="true"
+
+ENABLE_CORRECTION="true"
+
+COMPLETION_WAITING_DOTS="true"
 
 
-# key bindings
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
-bindkey "\C-_" backward-kill-word
-bindkey "\e[3;5~" kill-word
-bindkey "\e\d" undo
-bindkey "\e[3~" delete-char
-bindkey '\e[H' beginning-of-line
-bindkey '\e[F' end-of-line
+plugins=(git
+    rails
+    ruby
+    zsh-autosuggestions
+    zsh-completions
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
 
 
-# vi mode
-#bindkey -v
-export KEYTIMEOUT=1
-#bindkey '^e' edit-command-line
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# sources
-source $HOME/.zshenv
-source $HOME/.zprofile
-source $HOME/.zsh_aliases
+# Preferred editor for local and remote sessions
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
-# tmux
-tmux source-file ~/.tmux.conf
-#tmux
+# Compilation flags
 
-# make zsh look nice
-pfetch
-printf "Welcome Julia!\n"
-
-n ()
-{
-    # Block nesting of nnn in subshells
-    if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
-        echo "nnn is already running"
-        return
-    fi
-
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-
-    nnn -Rd "$@"
-
-    if [ -f "$NNN_TMPFILE" ]; then
-            . "$NNN_TMPFILE"
-            rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
-
+source $HOME/{.sh_aliases,sh_env,sh,profile}

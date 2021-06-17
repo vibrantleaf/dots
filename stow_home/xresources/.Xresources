@@ -1,4 +1,5 @@
-Xft.dpi: 84
+#include ".Xresources.d/monkai"
+Xft.dpi: 80
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgba
@@ -55,56 +56,11 @@ URxvt.keysym.M-C: eval:selection_to_clipboard
 URxvt*depth: 32
 !!URxvt*background: rgba:0000/0000/0000/c100
 
-
-
 URxvt.keysym.Home: \033[1~
 URxvt.keysym.End: \033[4~
 URxvt.keysym.KP_Home: \033[1~
 URxvt.keysym.KP_End:  \033[4~
 
-
-
-
 !! those two are for rxvt
 "\e[7~":beginning-of-line
 "\e[8~":end-of-line
-
-
-
-! special
-*.foreground:   #ebf8ff
-*.background:   #161b1d
-*.cursorColor:  #ebf8ff
-
-! black
-*.color0:       #161b1d
-*.color8:       #5a7b8c
-
-! red
-*.color1:       #d22d72
-*.color9:       #d22d72
-
-! green
-*.color2:       #568c3b
-*.color10:      #568c3b
-
-! yellow
-*.color3:       #8a8a0f
-*.color11:      #8a8a0f
-
-! blue
-*.color4:       #257fad
-*.color12:      #257fad
-
-! magenta
-*.color5:       #5d5db1
-*.color13:      #5d5db1
-
-! cyan
-*.color6:       #2d8f6f
-*.color14:      #2d8f6f
-
-! white
-*.color7:       #7ea2b4
-*.color15:      #7ea2b4
-

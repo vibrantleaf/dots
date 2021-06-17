@@ -21,7 +21,9 @@ bluetoothctl discoverable on &
 bluetoothctl pairable on &
 
 # compisitor
+
 picom --vsync --backend glx &
+#compton --vsync  opengl &
 
 # notifason daemon
 dunst &
@@ -32,14 +34,19 @@ udiskie -an &
 # urxvt daemon
 urxvtd &
 
+# nextcloud
+$HOME/Applications/Nextcloud/*.AppImage
+
+
 # polkit
-lxsession &
+lxsession-default &
+lxpolkit &
 
 # auto color shifter
-killall -9 redshift ; sleep 0.5s ; redshift &
+redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//') &
 
 # music player daemon
-mpd &
+#mpd &
 
 # tray
 timeout 20s trayer --edge top --align right --expand true --width 3 --height 20 --monitor primary &
@@ -48,8 +55,8 @@ timeout 20s trayer --edge top --align right --expand true --width 3 --height 20 
 notify-send -a PC_INFO -u normal "$(/home/julia/.bin/info)" &
 
 # tray tools
-$HOME/Applications/Nextcloud.AppImage &
-blueberry-tray &
+#$HOME/Applications/Nextcloud.AppImage &
+blueman-applet &
 flameshot &
 
 # wallpaper

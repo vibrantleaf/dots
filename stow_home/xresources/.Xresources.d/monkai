@@ -1,0 +1,95 @@
+#define monkai_forground    #f8f8f2
+#define monkai_background   #272822
+#define monkai_cursor       #272822
+#define monkai_black        #272822
+#define monkai_white        #f9f8f5
+#define monkai_red          #f4bf75
+#define monkai_green        #a6e22e
+#define monkai_yellow       #f4bf75
+#define monkai_blue         #66d9ef
+#define monkai_megenta      #ae81ff
+#define monkai_cyan         #a1efe4
+
+! special
+*.foreground:   monkai_forground
+*.background:   monkai_background
+*.cursorColor:  monkai_cursor
+
+! black
+*.color0:       monkai_black
+*.color8:       monkai_white
+
+! red
+*.color1:       monkai_red
+*.color9:       monkai_red
+
+! green
+*.color2:       monkai_green
+*.color10:      monkai_green
+
+! yellow
+*.color3:       monkai_yellow
+*.color11:      monkai_yellow
+
+! blue
+*.color4:       monkai_blue
+*.color12:      monkai_blue
+
+! magenta
+*.color5:       monkai_megenta
+*.color13:      monkai_megenta
+
+! cyan
+*.color6:       monkai_cyan
+*.color14:      monkai_cyan
+
+! white
+*.color7:       monkai_white
+*.color15:      monkai_white
+
+
+! === rofi ===
+
+rofi.modi:                           ssh,window,drun,run
+rofi.sidebar-mode:                   true
+rofi.terminal:                       urxvtc
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
+rofi.opacity:                        100
+rofi.width:                          50
+rofi.lines:                          10
+rofi.columns:                        1
+rofi.font:                           FiraCode NF 15
+rofi.fg:                             monkai_forground
+rofi.bg:                             monkai_background
+rofi.fg-active:                      monkai_forground
+rofi.fg-urgent:                      monkai_forground
+rofi.hlfg-active:                    monkai_forground
+rofi.hlfg-urgent:                    monkai_forground
+rofi.bg-active:                      monkai_yellow
+rofi.bg-urgent:                      monkai_red
+rofi.hlbg-active:                    monkai_yellow
+rofi.hlbg-urgent:                    monkai_red
+rofi.bgalt:                          monkai_black
+rofi.hlfg:                           monkai_forground
+rofi.hlbg:                           monkai_background
+rofi.bc:                             monkai_background
+
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
+rofi.color-normal: monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
+rofi.color-normal: monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
+
+!                  'background', 'border'
+rofi.color-window: #353944,      #404552
+rofi.bw:                             10
+rofi.location:                       0
+rofi.padding:                        20
+rofi.levenshtein-sort:               true
+rofi.case-sensitive:                 false
+rofi.fuzzy:                          false
+rofi.line-margin:                    2
+rofi.separator-style:                solid
+rofi.hide-scrollbar:                 true
+rofi.markup-rows:                    false
+rofi.scrollbar-width:                8

@@ -4,7 +4,7 @@ c.scrolling.bar = 'never' # allways
 c.content.cookies.accept = 'all' # none
 c.tabs.show = 'always' # never
 c.tabs.position = "bottom" # top, left, right
-c.content.notifications.enabled = False # True
+c.content.notifications.enabled = True # True
 c.content.fullscreen.window = True # False
 c.content.geolocation = 'ask'
 c.scrolling.smooth = True # False
@@ -13,7 +13,7 @@ c.confirm_quit = [ 'always' ] # never
 c.content.webgl = False # True
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 c.downloads.location.directory = '~/Downloads'
-config.load_autoconfig(True) # False
+c.load_autoconfig=True # False
 c.zoom.default = '100%'
 c.tabs.mousewheel_switching = False # True
 c.zoom.text_only = True # False
