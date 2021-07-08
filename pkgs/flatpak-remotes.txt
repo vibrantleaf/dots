@@ -1,2 +1,0 @@
-flathub	system
-gnome-nightly	system
