@@ -35,7 +35,7 @@ udiskie -an &
 urxvtd &
 
 # nextcloud
-$HOME/Applications/Nextcloud/*.AppImage
+#$HOME/Applications/Nextcloud/*.AppImage
 
 
 # polkit

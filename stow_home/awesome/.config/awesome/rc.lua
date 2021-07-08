@@ -262,7 +262,7 @@ globalkeys = gears.table.join(
     awful.key({ altkey, "Shift"   }, "Return", function() awful.spawn("rofi -show drun -show-icons") end,
               {description = "rofi", group = "programs"}),
 
-    awful.key({ modkey,    }, "Return", function() awful.spawn(terminal.. " -e tmux") end,
+    awful.key({ modkey,    }, "Return", function() awful.spawn(terminal) end,
               {description = "st", group = "programs"}),
 
     awful.key({ modkey,    }, "n", function() awful.util.spawn(terminal.." -e newsboat") end,
@@ -286,7 +286,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control"   }, "s", function() awful.spawn.with_shell("itch") end,
               {description = "itch.io", group = "programs"}),
 
-    awful.key({ modkey,    }, "d", function() awful.spawn.with_shell("$HOME/.bin/discord") end,
+    awful.key({ modkey,    }, "d", function() awful.spawn.with_shell("/opt/discord/Discord") end,
               {description = "discord", group = "programs"}),
 
     awful.key({ modkey,    }, "b", function() awful.spawn.with_shell("$HOME/.bin/info2") end,

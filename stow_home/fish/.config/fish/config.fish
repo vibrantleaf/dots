@@ -69,9 +69,9 @@ function fish_prompt
   end
 end
 
-source $HOME/.zprofile
-source $HOME/.zsh_aliases
-source $HOME/.zshenv
+source $HOME/.sh_profile
+set source $HOME/.sh_aliases
+set source $HOME/.sh_env
 
 set export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 
@@ -84,4 +84,3 @@ clear
 pfetch
 
 
-gui

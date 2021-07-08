@@ -26,14 +26,15 @@ ENABLE_CORRECTION="true"
 
 COMPLETION_WAITING_DOTS="true"
 
-
 plugins=(git
     rails
     ruby
     zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting
+#    zsh-url-quote-magic
 )
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -52,4 +53,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 
-source $HOME/{.sh_aliases,sh_env,sh,profile}
+source $HOME/{.sh_aliases,sh_env,.sh_profile}

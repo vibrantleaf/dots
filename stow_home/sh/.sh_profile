@@ -1,12 +1,10 @@
 export PATH=$HOME/.bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
 export EDITOR="codium"
-export TERMINAL="st -e tmux"
+export TERMINAL="st"
 export TERMCMD="st"
 export BROWSER="qutebrowser"
 export READER="foliate"
 export MANPAGER="nvim -c 'set ft=man' -"
-
 export XDG_DESKTOP_DIR="$HOME/Desktop"
 export XDG_DOCUMENTS_DIR="$HOME/Documents"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
@@ -15,14 +13,9 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
-
 export RUST_BACKTRACE=full
-
-
 export QUTE_DOWNLOAD_DIR="$HOME/Downloads"
-
 export CALIBRE_USE_DARK_PALETTE=1
-
 export NNN_BMS='h:~;p:~/Pictures;d:~/Downloads/;b:bookmarks'
 export NNN_USE_EDITOR=1
 export NNN_OPENER=nnnopen

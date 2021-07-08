@@ -2,8 +2,9 @@
 export PS1="\e[0;35m[\u\e[0;37m@\e[0;36m\H\e[0;37m \W]\$ \e[0m"
 
 # sources
-source $HOME/.bash_profile
-source $HOME/.bash_aliases
+source $HOME/.sh_profile
+source $HOME/.sh_aliases
+source $HOME/.sh_env
 
 # make bash look nice
 clear
