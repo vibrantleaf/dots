@@ -3,7 +3,7 @@
 # basic
 alias ls="ls -LAsh --color=auto"
 alias cp="cp -uvr"
-alias mv="mv -vu"
+alias mv="mv -v"
 alias grep="grep --color=auto"
 alias df="df -h"
 alias free="free -m"
@@ -35,7 +35,9 @@ alias shutdown="sudo poweroff"
 alias vm="virt-manager"
 alias proton-db-tags="python3 ~/.bin/proton-db-tags --check-native"
 alias vscodium=codium
-#alias nnn="nnn -Rd"
+alias vscode=codium
+
+alias nnn="nnn -Rd"
 alias dmenu_run="dmenu_run -l 20 -p run:"
 alias back-fill="feh --bg-fill $(cat $HOME/.config/wallpaper/wallpaperrc)"
 
@@ -45,6 +47,9 @@ alias cmatrix="cmatrix | lolcat"
 
 # font
 alias font-update="fc-cache -fv &&sudo fc-cache -fv"
+
+# debian/apt
+alias aptclean="sudo $HOME/.bin/aptclean"
 
 # youtube-dl
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "

@@ -16,20 +16,20 @@ numlockx on &
 setxkbmap -layout us -option caps:escape &
 
 # bluetooth
-bluetoothctl power on &
-bluetoothctl discoverable on &
-bluetoothctl pairable on &
+#bluetoothctl power on &
+#bluetoothctl discoverable on &
+#bluetoothctl pairable on &
 
 # compisitor
 
-picom --vsync --backend glx &
+#picom --vsync --backend glx &
 #compton --vsync  opengl &
 
 # notifason daemon
-dunst &
+#dunst &
 
 # auto disk mounter
-udiskie -an &
+#udiskie -an &
 
 # urxvt daemon
 urxvtd &
@@ -39,11 +39,11 @@ urxvtd &
 
 
 # polkit
-lxsession-default &
-lxpolkit &
+#lxsession-default &
+#lxpolkit &
 
 # auto color shifter
-redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//') &
+#redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | jq '.location.lat, .location.lng' | tr '\n' ':' | sed 's/:$//') &
 
 # music player daemon
 #mpd &
@@ -56,7 +56,7 @@ notify-send -a PC_INFO -u normal "$(/home/julia/.bin/info)" &
 
 # tray tools
 #$HOME/Applications/Nextcloud.AppImage &
-blueman-applet &
+#@blueman-applet &
 flameshot &
 
 # wallpaper

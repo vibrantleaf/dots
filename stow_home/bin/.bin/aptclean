@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# apt
+apt update
+apt upgrade --fix-broken -y
+apt dist-upgrade --fix-broken -y
+apt purge --auto-remove -y
+
