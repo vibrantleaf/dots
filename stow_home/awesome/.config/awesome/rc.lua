@@ -612,6 +612,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- autostart
-awful.spawn.with_shell("bash -C $HOME/.config/autostart.sh")
---awful.spawn.with_shell("feh --bg-fill $(cat $HOME/.config/wallpaper/wallpaperrc)")
+awful.spawn.with_shell("bash -C $HOME/.config/autostart-scripts/autostart.sh")
+awful.spawn.with_shell("feh --bg-fill $(cat $HOME/.config/wallpaper/wallpaperrc)")
 
