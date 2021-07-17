@@ -1,0 +1,146 @@
+#!/bin/bash
+# script to restore the dots and pkgs i use.
+# based on hexdsl's hextool script https://git.hexdsl.co.uk/hexdsl/dots/src/master/hextool
+pwdCache=$(pwd)
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
+u="$USER"
+
+menu(){
+	echo "usage:    dotgett [OPTION]"
+	echo " "
+	echo "init:     Install the basics (git,ssh,wget,curl,build-essentail)"
+	echo "dots:     Get dots files from codeberg and place into ~/git/"
+	echo "suckmore: download builds of suckless software and place in ~/Git"
+	echo "gitgett:  Get git repos from codeberg and place into ~/git/"
+	echo "stow:     Restore Stow form dots"
+	echo "apps:     Use 'apt' & 'pip3' to install all packges"
+	echo "hug:      We all need one sometimes"
+	echo "systemd:  Set systemd services"
+	echo "syms:     symlink files and folders to the corret places"
+	echo "all:      All of above"
+	echo " "
+	echo " "
+	echo "INFORMATION! - options are shown in 'best' order for new install."
+	}
+
+init(){
+	sudo apt install git ssh wget curl build-essential
+	mkdir ~/Git/bigowo
+	mkdir ~/Git/3rdparty
+	ln -sf ~/Git/bigowo ~/Git/sealeaf
+	mkdir -p ~/.config/mpv/watch_later
+	}
+
+suckmore(){
+	git clone https://codeberg.org/bigowo/st.git ~/Git/bigowo/st
+	git clone https://codeberg.org/bigowo/dwm.git ~/Git/bigowo/dwm
+	git clone https://codeberg.org/bigowo/dmenu.git ~/Git/bigowo/dmenu
+	git clone https://codeberg.org/bigowo/tabbed.git ~/Git/bigowo/tabbed
+	}
+gitgett(){
+	git clone https://codeberg.org/bigowo/getter.git ~/Git/bigowo/getter
+	git clone https://codeberg.org/bigowo/porta.git ~/Git/bigowo/porta
+	git clone https://codeberg.org/bigowo/debstall.git ~/Git/bigowo/debstall
+	}
+
+hug(){
+	    clear
+	    echo " "
+	    title="((((((((( hug )))))))))"
+	    printf "%*s\n" $(((${#title}+$COLUMNS)/2)) "$title"
+	    echo " "
+	    echo "everything is going to be okay buddy!"
+	    echo " "
+	}
+
+dots(){
+		cd ~
+		git clone https://codeberg.org/bigowo/dots.git ~/Git/dots
+	}
+
+stow(){
+	echo "Clearing out mimeapps"
+	mv -v ~/.config/mimeapps.list ~/.config/mimeapps.list.backup
+	cat /dev/null | tee ~/.config/mimeapps.list
+
+	# $HOME
+	echo "Stowing dots to $HOME"
+	cd ~/Git/bigowo/dots/stow_home/
+	stow --restow -vt ~ *
+	cd ~/Git/bigowo/dots
+
+     # $ROOT
+	echo "Setting up $ROOT files."
+	sudo cp -v stow_root/bash/root/.bashrc /root
+	sudo cp -v stow_root/zsh/root/.zshrc /root
+	}
+
+apps(){
+	echo "Downloading Sources.list and Sources.list.d/*.list"
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list | sudo tee /etc/apt/sources.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/adoptopenjdk.list | sudo tee /etc/apt/sources.list.d/adoptopenjdk.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/deb-mutimedia.list | sudo tee /etc/apt/sources.list.d/deb-mutimedia.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/lutris.list | sudo tee /etc/apt/sources.list.d/lutris.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/riot-im.list | sudo tee /etc/apt/sources.list.d/riot-im.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/spotifty.list | sudo tee /etc/apt/sources.list.d/spotifty.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/vscodium.list | sudo tee /etc/apt/sources.list.d/vscodium.list
+	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/winehq.list | sudo tee /etc/apt/sources.list.d/winehq.list
+	sudo apt update
+	sudo apt upgrade --fix-broken
+	sudo apt install $(curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/deb-packages.txt)
+	sudo tesksel install gnome
+	pip3 install $(curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/pip3-packages.txt)
+	}
+
+systemd()
+    {
+        sudo systemctl enable --now $(curl https://codeberg.org/bigowo/dots/raw/branch/master/systemd/serivces.txt)
+    }
+
+syms(){
+	read -p "Are you sure? THIS WILL DELETE MANY THINGS and symlink them to nextcloud folders [y/N]" -n 1 -r
+	echo
+	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	then
+	    exit 1
+	fi
+	#The "rm"ing
+	rm -rf ~/{Pictures,Documents,Desktop,Music,Notes,.ssh,Videos,Applications}
+	mkdir /mnt/{games,data,usb,remote}
+	ln -sf /mnt/data/Nextcloud ~/Nextcloud
+	ln -sf /mnt/games/ ~/Games
+	ln -sf /mnt/games/steam ~/.steam
+     ln -sf ~/Nextcloud/Applications ~/Applications
+	ln -sf ~/Nextcloud/Pictures/ ~/Pictures
+	ln -sf ~/Nextcloud/Documents/ ~/Documents
+	ln -sf ~/Nextcloud/Desktop ~/Desktop
+	ln -sf ~/Nextcloud/Downloads ~/Downloads
+	ln -sf ~/Nextcloud/Music ~/Music
+     ln -sf ~/Nextclout/Notes ~/Notes
+	# ssh
+	ln -s ~/Nextcloud/.ssh/ ~/.ssh
+	chmod 600 ~/.ssh/id_rsa
+
+	echo "--------------------------------------"
+	echo "You may want to run 'pass init $u' now"
+    }
+
+all(){
+	hug
+	init
+	gitgett
+	suckmore
+	dots
+	stow
+	apps
+	systemd
+	sym	
+	hug
+}
+
+if [ -n "$1" ]; then
+  $1
+else
+  menu
+fi
+

@@ -1,12 +1,13 @@
 # dot-files
 Just my dot files.
 
-![Rice](https://git.bigowo.digital/julia/dots/raw/branch/master/rice.png)
+![Rice](https://codeberg.org/bigowo/dots/raw/branch/master/rice.png)
 
 ### How to install [WIP]
- 1. install debian linux
- 2. `bash -C $(curl https://git.bigowo.digital/julia/dots/raw/branch/master/installer.sh)`
+ 1. install debian testing
+ 2. `bash -C $(curl https://codeberg.org/bigowo/dots/src/branch/master/dotgett)`
  3. enjoy
 
-### Sources for my dot files
-[link](https://git.bigowo.digitla/julia/dots/src/branch/master/SOURCES.md)
+### More
+[LICENSE](https://codeberg.org/bigowo/dots/src/branch/master/LICENSE.txt)
+[SOURCES]((https://codeberg.org/bigowo/dots/src/branch/master/SOURCES)

@@ -1,23 +1,18 @@
-# dot-files
-## Git repos / Binarys / Scripts that are included in my dot files
-1. [nordic theme gtk,qt,etc](https://github.com/ohmyzsh/ohmyzsh)
-2. [black frost numix flat icon theme](https://www.gnome-look.org/s/Gnome/p/1333828`)
-4. [jblock](https://gitlab.com/jgkamat/jblock.git)
-5. [jmatrix](https://gitlab.com/jgkamat/jmatrix.git)
-6. [qutenyan](https://gitlab.com/jgkamat/qutenyan.git)
-7. [vundle.vim](https://github.com/VundleVim/Vundle.vim.git)
-8. [nerdtree](https://github.com/preservim/nerdtree.git)
-10. [lowdown](https://kristaps.bsd.lv/lowdown/)
-11. [legendary](https://github.com/derrod/legendary)
-12. [obmenu-generator](https://github.com/trizen/obmenu-generator)
-13. [ProtonDB-Tags](https://github.com/CorruptComputer/ProtonDB-Tags)
-14. [ProtonUpdater](https://github.com/Termuellinator/ProtonUpdater)
-15. Some scripts that i wrote my self
-
-## Many of the configs used in this repo are based on the folling people's dot files.
-1. [Derek Taylor](https://gitlab.com/dwt1/dotfiles.git) *(dt/distrotube) [MIT license]*
-2. [Steve Anelay](https://gitlab.com/OldTechBloke/dotfiles.git) *(otb/old tech bloke) [MIT license]*
-3. [HexDSL](https://git.hexdsl.co.uk/hexdsl/dots.git) *[no license]*
-4. [Wolfgang](https://github.com/notthebee/dotfiles.git) *(notthebee) [no license]*
-5. [Brodie Robertson](https://github.com/BrodieRobertson/dotfiles.git) *[GPLv3 license]*
-6. [Luke Smith](https://github.com/LukeSmithxyz/voidrice.git) *[GPLv3 license]*
+# Sources for dots
+- [jblock](https://gitlab.com/jgkamat/jblock.git)
+- [jmatrix](https://gitlab.com/jgkamat/jmatrix.git)
+- [qutenyan](https://gitlab.com/jgkamat/qutenyan.git)
+- [vundle.vim](https://github.com/VundleVim/Vundle.vim.git)
+- [nerdtree](https://github.com/preservim/nerdtree.git)
+- [obmenu-generator](https://github.com/trizen/obmenu-generator)
+- [ProtonDB-Tags](https://github.com/CorruptComputer/ProtonDB-Tags)
+- [ProtonUpdater](https://github.com/Termuellinator/ProtonUpdater)
+- [bashtop](https://github.com/aristocratos/bashtop)
+- [favicon](https://pixabay.com/pt/illustrations/logotipo-html-html5-%c3%adcone-2582748/)
+- [Derek Taylor's dotfiles](https://gitlab.com/dwt1/dotfiles.git) *(dt/distrotube) [MIT license]*
+- [Steve Anelay's dotfiles](https://gitlab.com/OldTechBloke/dotfiles.git) *(otb/old tech bloke) [MIT license]*
+- [HexDSL's dots](https://git.hexdsl.co.uk/hexdsl/dots.git) *[no license]*
+- [Wolfgang' dotfiles](https://github.com/notthebee/dotfiles.git) *(notthebee) [no license]*
+- [Brodie Robertson's dotfiles](https://github.com/BrodieRobertson/dotfiles.git) *[GPLv3 license]*
+- [Luke Smith's voidrice](https://github.com/LukeSmithxyz/voidrice.git) *[GPLv3 license]*
+- Some scripts that i wrote my self

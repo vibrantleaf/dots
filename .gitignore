@@ -5,3 +5,8 @@ stow_home/tint2/.config/tint2/tint2rc.back*
 stow_home/zsh/.oh-my-zsh
 stow_home/zsh/.oh-my-zsh
 stow_home/glasscord
+.DS_Store
+*.py[cod]
+*$py.class
+pkgs/sources.list.d/*.list.save
+pkgs/sources.list.save
