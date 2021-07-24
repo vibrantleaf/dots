@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import sys 
+import sys
 import os
 #    status:
 #    debian    =    working 100%
@@ -15,19 +15,24 @@ def apt():
      aptUp3 = "sudo apt dist-upgrade -y --fix-broken && "
      aptUp4 = "sudo apt purge --auto-remove -y "
      os.system("/usr/bin/sudo -s " + aptUp1 + aptUp2 + aptUp3 + aptUp4)
-     
+
 def pac():
      pacUp1 = "sudo pacman -Syu"
      os.system("/usr/bin/sudo -s " + pacUp1)
 
 def dnf():
-     print("Updating DNF Packages.") 
+     print("Updating DNF Packages.")
      dnfUp1 = str("sudo dnf update -y")
      os.system("/usr/bin/sudo -s " + dnfUp1)
 
 def flat():
      flatUp1 = str("sudo flatpak update -y")
      os.system("/usr/bin/sudo -s " + flatUp1)
+
+def reboot():
+    print("The Your System Needs to Reboot." )
+    input("Press Enter to continue...")
+    os.system("/usr/bin/sudo -s systemctl reboot")
 
 def main():
      with open('/etc/os-release', 'r') as release:
@@ -46,6 +51,7 @@ def main():
                flat()
           else:
                print("Your flatpak is not installed.")
+          reboot()
 
 if __name__ == "__main__":
     main()

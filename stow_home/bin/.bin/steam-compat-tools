@@ -8,68 +8,32 @@ ltpbaseuri="https://github.com/luxtorpeda-dev/luxtorpeda/releases/latest"
 ltplatesturi="https://api.github.com/repos/luxtorpeda-dev/luxtorpeda/releases/latest"
 # boxtron
 boxbaseuri="https://github.com/dreamer/boxtron/releases/latest"
-boxplatesturi="https://api.github.com/repos/dreamer/boxtron/releases/latest"
+boxlatesturi="https://api.github.com/repos/dreamer/boxtron/releases/latest"
 # latest ver
 gelatestversion="$(curl -s $gelatesturi | egrep -m1 "tag_name" | cut -d \" -f4)"
 ltplatestversion="$(curl -s $ltplatesturi | egrep -m1 "tag_name" | cut -d \" -f4)"
-boxatestversion="$(curl -s $boxlatesturi | egrep -m1 "tag_name" | cut -d \" -f4)"
-# proton-ge get
-if [[ -d $dstpath/Proton-$gelatestversion ]]
-then
-  echo "Proton $gelatestversion is the latest version and is already installed."
-  echo "Exiting..."
-  exit 0
-else
-  echo "Proton $gelatestversion is the latest version and is not installed yet."
-  echo "Installing Proton $gelatestverion"
-  geurl=$(curl -s $gelatesturi | egrep -m1 "browser_download_url.*.tar.gz" | cut -d \" -f4)
-fi
-# ltp get
-if [[ -d $dstpath/luxtorpeda-$ltplatestversion ]]
-then
-  echo "luxtorpeda $ltplatestversion is the latest version and is already installed."
-  echo "Exiting..."
-  exit 0
-else
-  echo "lutorpeda $ltplatestversion is the latest version and is not installed yet."
-  echo "Installing luxtorpeda $ltpgelatestverion"
-  ltpurl=$(curl -s $ltplatesturi | egrep -m1 "browser_download_url.*.tar.gz" | cut -d \" -f4)
-fi
-
-if [[ -d $dstpath/boxtron-$gelatestversion ]]
-then
-  echo "boxtron $boxlatestversion is the latest version and is already installed."
-  echo "Exiting..."
-  exit 0
-else
-  echo "boxtron $boxlatestversion is the latest version and is not installed yet."
-  echo "Installing boxtron $boxlatestverion"
-  boxurl=$(curl -s $boxlatesturi | egrep -m1 "browser_download_url.*.tar.gz" | cut -d \" -f4)
-fi
-
-gersp="$(curl -sI "$geurl" | head -1)"
-echo "$gersp" | grep -q 302 || {
-  echo "$gersp"
-  exit 1
-}
-
-ltprsp="$(curl -sI "$ltpurl" | head -1)"
-echo "$ltprsp" | grep -q 302 || {
-  echo "$ltprsp"
-  exit 1
-}
-
-boxrsp="$(curl -sI "$boxurl" | head -1)"
-echo "$boxrsp" | grep -q 302 || {
-  echo "$boxrsp"
-  exit 1
-}
+boxlatestversion="$(curl -s $boxlatesturi | egrep -m1 "tag_name" | cut -d \" -f4)"
+# down url
+geurl="$(curl -s $gelatesturi | egrep -m1 "browser_download_url.*.tar.gz" | cut -d \" -f4)"
+ltpurl="$(curl -s $ltplatesturi | egrep -m1 "browser_download_url.*.tar.gz" | cut -d \" -f4)"
+boxurl="$(curl -s $boxlatesturi | egrep -m1 "browser_download_url.*.tar.xz" | cut -d \" -f4)"
 
 [ -d "$dstpath" ] || {
-    mkdir "$dstpath"
+    mkdir -p "$dstpath"
     echo [Info] Created "$dstpath"
 }
 
-curl -sL "$geurl" | tar xfzv - -C "$dstpath"
-curl -sL "$ltpurl" | tar xfzv - -C "$dstpath"
-curl -sL "$boxurl" | tar xfzv - -C "$dstpath"
+[ -d "$dstpath/Proton-$gelatesturi" ] || {
+  echo "Installing Proton $gelatestverion"
+  curl -s "$geurl" | tar xzf - -C "$dstpath"
+}
+
+[ -d "$dstpath/luxtorpeda-$ltplatesturi" ] || {
+  echo "Installing luxtorpeda $ltplatestverion"
+  curl -s "$ltpurl" | tar xf - -C "$dstpath"
+}
+
+[ -d "$dstpath/boxtron-$boxlatesturi" ] || {
+  echo "Installing boxtron $ltplatestverion"
+  curl -s "$boxurl" | tar xf - -C "$dstpath"  
+}
