@@ -77,7 +77,8 @@ rofi.bc:                             monkai_background
 
 ! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
 rofi.color-normal: monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
-
+rofi.color-normal: monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
+rofi.color-normal: monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
 
 !                  'background', 'border'
 rofi.color-window: #353944,      #404552

@@ -32,15 +32,14 @@ init(){
 	}
 
 suckmore(){
-	git clone https://codeberg.org/bigowo/st.git ~/Git/bigowo/st
-	git clone https://codeberg.org/bigowo/dwm.git ~/Git/bigowo/dwm
-	git clone https://codeberg.org/bigowo/dmenu.git ~/Git/bigowo/dmenu
-	git clone https://codeberg.org/bigowo/tabbed.git ~/Git/bigowo/tabbed
+	git clone https://codeberg.org/sealeaf/st.git ~/Git/sealeaf/st
+	git clone https://codeberg.org/sealeaf/dwm.git ~/Git/sealeaf/dwm
+	git clone https://codeberg.org/sealeaf/dmenu.git ~/Git/sealeaf/dmenu
+	git clone https://codeberg.org/sealeaf/tabbed.git ~/Git/sealeaf/tabbed
 	}
 gitgett(){
-	git clone https://codeberg.org/bigowo/getter.git ~/Git/bigowo/getter
-	git clone https://codeberg.org/bigowo/porta.git ~/Git/bigowo/porta
-	git clone https://codeberg.org/bigowo/debstall.git ~/Git/bigowo/debstall
+	git clone https://codeberg.org/sealeaf/getter.git ~/Git/sealeaf/getter
+	git clone https://codeberg.org/sealeaf/porta.git ~/Git/sealeaf/porta
 	}
 
 hug(){
@@ -55,7 +54,7 @@ hug(){
 
 dots(){
 		cd ~
-		git clone https://codeberg.org/bigowo/dots.git ~/Git/dots
+		git clone https://codeberg.org/sealeaf/dots.git ~/Git/sealeaf/dots
 	}
 
 stow(){
@@ -77,24 +76,24 @@ stow(){
 
 apps(){
 	echo "Downloading Sources.list and Sources.list.d/*.list"
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list | sudo tee /etc/apt/sources.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/adoptopenjdk.list | sudo tee /etc/apt/sources.list.d/adoptopenjdk.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/deb-mutimedia.list | sudo tee /etc/apt/sources.list.d/deb-mutimedia.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/lutris.list | sudo tee /etc/apt/sources.list.d/lutris.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/riot-im.list | sudo tee /etc/apt/sources.list.d/riot-im.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/spotifty.list | sudo tee /etc/apt/sources.list.d/spotifty.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/vscodium.list | sudo tee /etc/apt/sources.list.d/vscodium.list
-	curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/sources.list.d/winehq.list | sudo tee /etc/apt/sources.list.d/winehq.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list | sudo tee /etc/apt/sources.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/adoptopenjdk.list | sudo tee /etc/apt/sources.list.d/adoptopenjdk.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/deb-mutimedia.list | sudo tee /etc/apt/sources.list.d/deb-mutimedia.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/lutris.list | sudo tee /etc/apt/sources.list.d/lutris.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/riot-im.list | sudo tee /etc/apt/sources.list.d/riot-im.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/spotifty.list | sudo tee /etc/apt/sources.list.d/spotifty.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/vscodium.list | sudo tee /etc/apt/sources.list.d/vscodium.list
+	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/winehq.list | sudo tee /etc/apt/sources.list.d/winehq.list
 	sudo apt update
 	sudo apt upgrade --fix-broken
-	sudo apt install $(curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/deb-packages.txt)
+	sudo apt install $(curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/deb-packages.txt)
 	sudo tesksel install gnome
-	pip3 install $(curl https://codeberg.org/bigowo/dots/raw/branch/master/pkgs/pip3-packages.txt)
+	pip3 install $(curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/pip3-packages.txt)
 	}
 
 systemd()
     {
-        sudo systemctl enable --now $(curl https://codeberg.org/bigowo/dots/raw/branch/master/systemd/serivces.txt)
+        sudo systemctl enable --now $(curl https://codeberg.org/sealeaf/dots/raw/branch/main/systemd/serivces.txt)
     }
 
 syms(){
@@ -134,7 +133,7 @@ all(){
 	stow
 	apps
 	systemd
-	sym	
+	sym
 	hug
 }
 

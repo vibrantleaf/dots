@@ -1,5 +1,6 @@
 # promt
-export PS1="\e[0;35m[\u\e[0;37m@\e[0;36m\H\e[0;37m \W]\$ \e[0m"
+# kirsle.net/wizards/ps1.html
+export PS1="\[$(tput bold)\]\[$(tput setaf 6)\]\t \[$(tput setaf 2)\][\[$(tput setaf 3)\]\u\[$(tput setaf 1)\]@\[$(tput setaf 3)\]\h \[$(tput setaf 6)\]\W\[$(tput setaf 2)\]]\[$(tput setaf 4)\]\\$ \[$(tput sgr0)\]"
 
 # sources
 source $HOME/.sh_profile

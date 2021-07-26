@@ -4,7 +4,7 @@ c.scrolling.bar = 'never' # allways
 c.content.cookies.accept = 'all' # none
 c.tabs.show = 'always' # never
 c.tabs.position = "bottom" # top, left, right
-c.content.notifications.enabled = True # True
+#c.content.notifications.enabled = True # True
 c.content.fullscreen.window = True # False
 c.content.geolocation = 'ask'
 c.scrolling.smooth = True # False
@@ -18,6 +18,7 @@ c.zoom.default = '100%'
 c.tabs.mousewheel_switching = False # True
 c.zoom.text_only = True # False
 
+config.load_autoconfig(False)
 # bindings
 config.unbind('<Ctrl-w>')
 config.unbind('q')
