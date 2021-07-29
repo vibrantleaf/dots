@@ -26,6 +26,6 @@ urxvtd &
 
 # Tray
 flameshot &
-
+alsactl init &
 #AppImages
 $HOME/Applications/Nextcloud/*.AppImage
