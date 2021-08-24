@@ -21,6 +21,8 @@ export NNN_USE_EDITOR=1
 export NNN_OPENER=nnnopen
 export NNN_COLORS='1267'
 export NNN_TMPFILE="$HOME/.config/nnn.last"
+XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:/usr/share/:$HOME/.local/share"
+
 
 export CCACHE_DIR="/var/cache/ccache"
 

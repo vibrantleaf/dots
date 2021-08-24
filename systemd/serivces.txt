@@ -1,6 +1,0 @@
-libvirtd
-ufw
-NetworkManger
-fail2ban
-sshd
-polkit

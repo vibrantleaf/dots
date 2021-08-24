@@ -37,13 +37,13 @@ bspc config urgent_border_color 	"#dd2727"
 #bspc monitor -d I II III IV V VI VII VIII IX X
 
 # Dual monitor
-#bspc monitor DP-0 -d I II III IV V
-#bspc monitor HDMI-0 -d VI VII VIII IX X
+bspc monitor DP-4 -d I II III IV V
+bspc monitor HDMI-0 -d VI VII VIII IX X
 
 # Triple monitor
-bspc monitor DP-0 -d I II III
-bspc monitor DP-4 -d IV V VI VII
-bspc monitor HDMI-0 -d VIII IX X
+#bspc monitor DP-0 -d I II III
+#bspc monitor DP-4 -d IV V VI VII
+#bspc monitor HDMI-0 -d VIII IX X
 
 bsp-layout set tall {I,II,III,IV,V,VI,VII,VIII,IX,X}
 

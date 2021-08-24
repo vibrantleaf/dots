@@ -29,7 +29,7 @@ super + n
 
 # htop
 super + p
-    st --class "htop" -e htop
+    st --class "bashtop" -e bashtop
 
 # pulse mixer
 super + m
@@ -43,13 +43,9 @@ super + d
 super + {_,control,alt,shift} + s
     /bin/usr/sh -C {steam.lutris,itch,minigalaxy}
 
-# librewolf
+# webbrowser
 super + w
-    chromium
-
-# librewolf private window
-super + shift + w
-    chromium --temp-profile
+    qutebrowser
 
 # reload sxhkd:
 super + alt + r
@@ -57,13 +53,13 @@ super + alt + r
 
 # tray $HOME/.bin/tray
 super + t
-    tray
+    $HOME/.bin/tray
 
 super + shift + {t,b}
-    info2 && tray
+    $HOME/.bin/info2 && $HOME/.bin/tray
 
 super + b
-    info2
+    $HOME/.bin/info2
 
 ### media keys
 

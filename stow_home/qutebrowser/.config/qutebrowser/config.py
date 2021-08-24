@@ -13,12 +13,11 @@ c.confirm_quit = [ 'always' ] # never
 c.content.webgl = False # True
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 c.downloads.location.directory = '~/Downloads'
-c.load_autoconfig=True # False
 c.zoom.default = '100%'
 c.tabs.mousewheel_switching = False # True
 c.zoom.text_only = True # False
+config.load_autoconfig()
 
-config.load_autoconfig(False)
 # bindings
 config.unbind('<Ctrl-w>')
 config.unbind('q')
