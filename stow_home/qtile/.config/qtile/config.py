@@ -10,13 +10,13 @@ from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from typing import List  # noqa: F401
 
-mod = "mod4"                            # Sets mod key to SUPER/WINDOWS
-term = "st"                             # My terminal of choice
+mod = "mod4"
+term = "tilix"
 
 keys = [
          ### The essentials
          Key([mod], "Return",
-             lazy.spawn(term+" -e tmux"),
+             lazy.spawn(term),
              desc='Launches My Terminal'
              ),
          Key([mod, "shift"], "Return",

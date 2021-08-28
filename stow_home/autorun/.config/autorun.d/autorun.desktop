@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Exec=bash $HOME/.config/autorun.sh %U
+Terminal=false
+Type=Application
+StartupWMClass=autorun
+StartupNotify=false

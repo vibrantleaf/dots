@@ -104,6 +104,6 @@ xsetroot -cursor_name left_ptr
 sxhkd &
 
 # autostart
-bash -c $HOME/.config/autostart.sh &
+bash -c $HOME/.config/autorun.sh &
 
 
