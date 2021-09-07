@@ -1,18 +1,20 @@
 # Sources for dots
-- [jblock](https://gitlab.com/jgkamat/jblock.git)
-- [jmatrix](https://gitlab.com/jgkamat/jmatrix.git)
-- [qutenyan](https://gitlab.com/jgkamat/qutenyan.git)
-- [vundle.vim](https://github.com/VundleVim/Vundle.vim.git)
-- [nerdtree](https://github.com/preservim/nerdtree.git)
-- [obmenu-generator](https://github.com/trizen/obmenu-generator)
-- [ProtonDB-Tags](https://github.com/CorruptComputer/ProtonDB-Tags)
-- [ProtonUpdater](https://github.com/Termuellinator/ProtonUpdater)
-- [bashtop](https://github.com/aristocratos/bashtop)
-- [favicon](https://pixabay.com/pt/illustrations/logotipo-html-html5-%c3%adcone-2582748/)
-- [Derek Taylor's dotfiles](https://gitlab.com/dwt1/dotfiles.git) *(dt/distrotube) [MIT license]*
-- [Steve Anelay's dotfiles](https://gitlab.com/OldTechBloke/dotfiles.git) *(otb/old tech bloke) [MIT license]*
-- [HexDSL's dots](https://git.hexdsl.co.uk/hexdsl/dots.git) *[no license]*
-- [Wolfgang' dotfiles](https://github.com/notthebee/dotfiles.git) *(notthebee) [no license]*
-- [Brodie Robertson's dotfiles](https://github.com/BrodieRobertson/dotfiles.git) *[GPLv3 license]*
-- [Luke Smith's voidrice](https://github.com/LukeSmithxyz/voidrice.git) *[GPLv3 license]*
-- Some scripts that i wrote my self
+- [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- [jblock](https://gitlab.com/jgkamat/jblock.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [jmatrix](https://gitlab.com/jgkamat/jmatrix.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [qutenyan](https://gitlab.com/jgkamat/qutenyan.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [vundle.vim](https://github.com/VundleVim/Vundle.vim.git)| [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- [nerdtree](https://github.com/preservim/nerdtree.git) | [WTFPL](http://www.wtfpl.net/about/)
+- [obmenu-generator](https://github.com/trizen/obmenu-generator) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [ProtonDB-Tags](https://github.com/CorruptComputer/ProtonDB-Tags) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- [ProtonUpdater](https://github.com/Termuellinator/ProtonUpdater) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- [favicon](https://pixabay.com/pt/illustrations/logotipo-html-html5-%c3%adcone-2582748/) | [Pixabay License](https://pixabay.com/service/terms/#license)
+- [bashtop](https://github.com/aristocratos/bashtop.git) | [Apache v2 License](https://www.apache.org/licenses/LICENSE-2.0)
+- [Derek Taylor's *(dt/distrotube)* dotfiles](https://gitlab.com/dwt1/dotfiles.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- [Steve Anelay's *(AKA otb/old tech bloke)* dotfiles](https://gitlab.com/OldTechBloke/dotfiles.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)*
+- [HexDSL's dots](https://git.hexdsl.co.uk/hexdsl/dots.git) | no license file provided
+- [UooU's dotfiles](https://gitlab.com/uoou/dotfiles.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [Wolfgang's *(AKA notthebee)* dotfiles](https://github.com/notthebee/dotfiles.git) | no license file provided
+- [Brodie Robertson's dotfiles](https://github.com/BrodieRobertson/dotfiles.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [Luke Smith's voidrice](https://github.com/LukeSmithxyz/voidrice.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [base16's xresources](https://github.com/base16-templates/base16-xresources.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)

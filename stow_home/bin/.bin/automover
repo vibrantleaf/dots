@@ -1,52 +1,52 @@
 #!/usr/bin/env bash
-downloads="$HOME/Downloads"
+#XDG_DOWNLOAD_DIR="$HOME/Downloads"
 vid="{mp4,mkv,gif,webv}"
 img="{jpg,jpeg,png,webp,}"
 
-mkdir -p $downloads/{archive,torrent,exe,deb}
+mkdir -p $XDG_DOWNLOAD_DIR/{archive,torrent,winbin,deb}
 mkdir -p /mnt/data/vm/iso
 
 iso(){
-  mv $downloads/*.iso /mnt/data/vm/iso
+  mv $XDG_DOWNLOAD_DIR/*.iso /mnt/data/vm/iso
   }
 
 torrent(){
-  mv $downloads/*.torrent $downloads/torrent
+  mv $XDG_DOWNLOAD_DIR/*.torrent $XDG_DOWNLOAD_DIR/torrent
   }
 
 zip(){
-  mv $downloads/*.{zip,tar.*,zstd,rar,7z,vdf,ar} mv $downloads/archive
+  mv $XDG_DOWNLOAD_DIR/*.{zip,tar.*,zstd,rar,7z,vdf,ar} mv $XDG_DOWNLOAD_DIR/archive
   }
 
 exe(){
-  mv $downloads/*.{exe,msi} $downloads/exe
+  mv $XDG_DOWNLOAD_DIR/*.{exe,msi} $XDG_DOWNLOAD_DIR/winbin
   }
 
 video(){
-  mv $downloads/*.$vid $HOME/Videos/
+  mv $XDG_DOWNLOAD_DIR/*.$vid $HOME/Videos/
   }
 
 images(){
-  mv $downloads/*.$img $HOME/Pictures
+  mv $XDG_DOWNLOAD_DIR/*.$img $HOME/Pictures
   }
 
 deb(){
-  mv $downloads/*.deb $downloads/deb
+  mv $XDG_DOWNLOAD_DIR/*.deb $XDG_DOWNLOAD_DIR/deb
   }
 
 if [ -f $1 ] ; then
     case $1 in
-      $downloads/*.iso) \
+      $XDG_DOWNLOAD_DIR/*.iso) \
         iso $1  ;;
-      $downloads/*.torrent) \
+      $XDG_DOWNLOAD_DIR/*.torrent) \
         torrent $1  ;;
-      $downloads/*.{exe,msi}) \
+      $XDG_DOWNLOAD_DIR/*.{exe,msi}) \
         exe $1  ;;
-      $downloads/*.$vid) \
+      $XDG_DOWNLOAD_DIR/*.$vid) \
         video $1  ;;
-      $downloads/*.$img) \
+      $XDG_DOWNLOAD_DIR/*.$img) \
         images $1 ;;
-      $downloads/*.deb) \
+      $XDG_DOWNLOAD_DIR/*.deb) \
         deb $1  ;;
     esac
   else

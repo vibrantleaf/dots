@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Exec=bash $HOME/.config/autorun.sh %U
+Exec=$HOME/.config/autorun.sh
 Terminal=false
 Type=Application
 StartupWMClass=autorun

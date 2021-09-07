@@ -33,15 +33,9 @@ init(){
 
 suckmore(){
 	git clone https://codeberg.org/sealeaf/st.git ~/Git/sealeaf/st
-	git clone https://codeberg.org/sealeaf/dwm.git ~/Git/sealeaf/dwm
-	git clone https://codeberg.org/sealeaf/dmenu.git ~/Git/sealeaf/dmenu
-	git clone https://codeberg.org/sealeaf/tabbed.git ~/Git/sealeaf/tabbed
+	git clone https://codeberg.org/sealeaf/suckmore.git ~/Git/sealeaf/suckmore
 	}
-gitgett(){
-	git clone https://codeberg.org/sealeaf/getter.git ~/Git/sealeaf/getter
-	git clone https://codeberg.org/sealeaf/porta.git ~/Git/sealeaf/porta
-	}
-
+	
 hug(){
 	    clear
 	    echo " "
@@ -70,8 +64,8 @@ stow(){
 
      # $ROOT
 	echo "Setting up $ROOT files."
-	sudo cp -v stow_root/bash/root/.bashrc /root
-	sudo cp -v stow_root/zsh/root/.zshrc /root
+	sudo cp -v stow_root/bash/root/.bashrc /root/.bashrc
+	sudo cp -v stow_root/zsh/root/.zshrc /root/.zshrc
 	}
 
 apps(){
@@ -86,9 +80,6 @@ apps(){
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/winehq.list | sudo tee /etc/apt/sources.list.d/winehq.list
 	sudo apt update
 	sudo apt upgrade --fix-broken
-	sudo apt install $(curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/deb-packages.txt)
-	sudo tesksel install gnome
-	pip3 install $(curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/pip3-packages.txt)
 	}
 
 systemd()
@@ -103,19 +94,19 @@ syms(){
 	then
 	    exit 1
 	fi
-	#The "rm"ing
+	# The "rm"ing
 	rm -rf ~/{Pictures,Documents,Desktop,Music,Notes,.ssh,Videos,Applications}
 	mkdir /mnt/{games,data,usb,remote}
 	ln -sf /mnt/data/Nextcloud ~/Nextcloud
 	ln -sf /mnt/games/ ~/Games
 	ln -sf /mnt/games/steam ~/.steam
-     ln -sf ~/Nextcloud/Applications ~/Applications
+    ln -sf ~/Nextcloud/Applications ~/Applications
 	ln -sf ~/Nextcloud/Pictures/ ~/Pictures
 	ln -sf ~/Nextcloud/Documents/ ~/Documents
 	ln -sf ~/Nextcloud/Desktop ~/Desktop
 	ln -sf ~/Nextcloud/Downloads ~/Downloads
 	ln -sf ~/Nextcloud/Music ~/Music
-     ln -sf ~/Nextclout/Notes ~/Notes
+    ln -sf ~/Nextclout/Notes ~/Notes
 	# ssh
 	ln -s ~/Nextcloud/.ssh/ ~/.ssh
 	chmod 600 ~/.ssh/id_rsa
@@ -127,7 +118,6 @@ syms(){
 all(){
 	hug
 	init
-	gitgett
 	suckmore
 	dots
 	stow
