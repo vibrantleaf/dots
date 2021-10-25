@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+baseuri="https://github.com/Frogging-Family/wine-tkg-git/releases/download"
+latesturi="https://api.github.com/repos/Frogging-Family/wine-tkg-git/releases/latest"
+dstpath="$HOME/.local/share/lutris/runners/wine/"
+
+
+  latestversion="$(curl -s $latesturi | egrep -m1 "tag_name" | cut -d \" -f4)"
+  if [[ -d $dstpath/wine-$latestversion ]]
+  then
+    echo "wine-$latestversion is the latest version and is already installed."
+    echo "Exiting..."
+    exit 0
+  else
+    echo "wine-$latestversion is the latest version and is not installed yet."
+    echo "Installing wine-$latestverion"
+    url=$(curl -s $latesturi | egrep -m1 "browser_download_url.*.pkg.tar.zst" | cut -d \" -f4)
+  fi
+
+rsp="$(curl -sI "$url" | head -1)"
+echo "$rsp" | grep -q 302 || {
+  echo "$rsp"
+  exit 1
+}
+
+[ -d "$dstpath" ] || {
+    mkdir "$dstpath"
+    echo [Info] Created "$dstpath"
+}
+
+# cache
+mkdir $HOME/.cache/wine-tkg/
+mkdir $HOME/.cache/wine-tkg/pkg
+mkdir $HOME/.cache/wine-tkg/ext
+
+# Download
+wget "$url" -O $HOME/.cache/wine-tkg/pkg/wine-$latestversion.pkg.tar.zst
+
+
+
+# Install
+mkdir $HOME/.cache/wine-tkg/ext/wine-$latestversion
+tar -I zstd -xvf $HOME/.cache/wine-tkg/pkg/wine-$latestversion.pkg.tar.zst -C $HOME/.cache/wine-tkg/ext/wine-$latestversion
+
+cp -r $HOME/.cache/wine-tkg/ext/wine-$latestversion/usr/* $dstpath/wine-tkg-$latestversion
+
+# CleanUp
+rm -rf $HOME/.cache/wine-tkg

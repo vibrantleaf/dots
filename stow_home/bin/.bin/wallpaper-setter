@@ -1,9 +1,0 @@
-#!/bin/bash
-wallpaperrc=$XDG_CONFIG_DIR/wallpaper/wallpaperrc || wallpaperrc=$HOME/.config/wallpaper/wallpaperrc
-mkdir -p $XDG_CONFIG_DIR/wallpaper/ || mkdir -p $HOME/.config/wallpaper/
-touch $wallpaperrc
-sxiv -trqo $HOME/Pictures/wallpapers | xargs | tee  $wallpaperrc
-feh --bg-fill $(cat $wallpaperrc)
-
-# altternative to feh but has the issue of not liking more than one monitor
-#xwallpaper --output HDMI-0 --zoom $(cat $wallpaper)

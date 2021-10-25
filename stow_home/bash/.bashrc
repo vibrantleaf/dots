@@ -9,7 +9,7 @@ source $HOME/.sh_env
 
 # make bash look nice
 clear
-pfetch
+ghosts
 printf "Welcome Julia!\n"
 
 

@@ -1,0 +1,90 @@
+! special
+*.foreground:   #d0c8c6
+*.background:   #3b3228
+*.cursorColor:  #d0c8c6
+
+! black
+*.color0:       #3b3228
+*.color8:       #7e705a
+
+! red
+*.color1:       #cb6077
+*.color9:       #cb6077
+
+! green
+*.color2:       #beb55b
+*.color10:      #beb55b
+
+! yellow
+*.color3:       #f4bc87
+*.color11:      #f4bc87
+
+! blue
+*.color4:       #8ab3b5
+*.color12:      #8ab3b5
+
+! magenta
+*.color5:       #a89bb9
+*.color13:      #a89bb9
+
+! cyan
+*.color6:       #7bbda4
+*.color14:      #7bbda4
+
+! white
+*.color7:       #d0c8c6
+*.color15:      #f5eeeb
+
+
+
+! === rofi ===
+
+rofi.modi:                           ssh,window,drun,run
+rofi.sidebar-mode:                   true
+rofi.terminal:                       st
+rofi.ssh-client:                     ssh
+rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
+rofi.opacity:                        100
+rofi.width:                          50
+rofi.lines:                          10
+rofi.columns:                        1
+rofi.font:                           Comic Mono 15
+rofi.fg:                             #d0c8c6
+rofi.bg:                             #3b3228
+rofi.fg-active:                      #a89bb9
+rofi.fg-urgent:                      #cb6077
+
+rofi.hlfg-active:                    #d0c8c6
+rofi.hlfg-urgent:                    #d0c8c6
+
+rofi.bg-active:                      #3b3228
+rofi.bg-urgent:                      #3b3228
+
+rofi.hlbg-active:                    #3b3228
+rofi.hlbg-urgent:	             #cb6077
+
+rofi.bgalt:			     #a89bb9
+rofi.hlfg:			     #d0c8c6
+rofi.hlbg:			     #f4bc87
+rofi.bc:			     #f4bc87
+
+! State:         #beb55b   'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+!rofi.color-normal#beb55b : monkai_background,  monkai_forground,  monkai_black,  monkai_yellow,  monkai_forground
+
+
+!                'background', 'border'
+rofi.color-window: #353944,      #404552
+rofi.bw:                             10
+rofi.location:                       0
+rofi.padding:                        20
+rofi.levenshtein-sort:               true
+rofi.case-sensitive:                 false
+rofi.fuzzy:                          false
+rofi.line-margin:                    2
+rofi.separator-style:                solid
+rofi.hide-scrollbar:                 true
+rofi.markup-rows:                    false
+rofi.scrollbar-width:                8
+
+
+

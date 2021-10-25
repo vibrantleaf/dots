@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+notify-send -a PC_Info -u normal "$(info)"

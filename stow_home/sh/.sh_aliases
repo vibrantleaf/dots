@@ -1,13 +1,13 @@
 # aliases
 
 # basic
-alias ls="ls -LAsh --color=auto"
+alias ls="ls -Lash --color=auto"
 alias cp="cp -uvr"
 alias mv="mv -v"
 alias grep="grep --color=auto"
 alias df="df -h"
 alias free="free -m"
-alias edit="$EDITOR -- "
+#alias edit="$ -- "
 
 # cd
 alias ..="cd .."
@@ -15,12 +15,12 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 #vim/nvim
-alias vim="nvim"
-alias vi="nvim"
-#alias vi="vim"
+#alias vim="nvim"
+#alias vi="nvim"
+alias vi="vim"
 
 # dev
-alias make="make -j12"
+alias make="make -j12 --max-load=12 "
 
 # doas/sudo
 alias doas="doas -- "
@@ -33,10 +33,10 @@ alias shutdown="sudo poweroff"
 
 # misc
 alias vm="virt-manager"
-alias proton-db-tags="python3 ~/.bin/proton-db-tags --check-native"
+alias proton-db-tags="python3 $HOME/.bin/proton-db-tags --check-native | pv "
 alias vscodium=codium
 alias vscode=codium
-
+alias codium='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/codium --file-forwarding com.vscodium.codium --no-sandbox --new-windo'
 alias nnn="nnn -Rd"
 alias dmenu_run="dmenu_run -l 20 -p run:"
 alias back-fill="feh --bg-fill $(cat $HOME/.config/wallpaper/wallpaperrc)"
@@ -46,25 +46,38 @@ alias ascii="asciiquarium"
 alias cmatrix="cmatrix | lolcat"
 
 # font
-alias font-update="fc-cache -fv &&sudo fc-cache -fv"
+alias font-update="fc-cache -fv && sudo fc-cache -fv"
 
 # debian/apt
-alias aptclean="sudo $HOME/.bin/aptclean"
+alias aptclean="sudo $HOME/.bin/time $HOME/.bin/aptclean | pv "
+alias pyaptclean="sudo $HOME/.bin/time python3 $HOME/.bin/pyaptclean | pv "
+
+# java
+alias java="java '$JDK_JAVA_OPTIONS'"
+
 
 # youtube-dl
-alias yta-best="youtube-dl --extract-audio --no-keep-video --audio-format best "
-alias yta-flac="youtube-dl --extract-audio --no-keep-video --audio-format flac "
-alias yta-opus="youtube-dl --extract-audio --no-keep-video --audio-format opus "
-alias yta-vorbis="youtube-dl --extract-audio --no-keep-video --audio-format vorbis "
-alias ytv-best="youtube-dl -f bestvideo+bestaudio \
-    --write-thumbnail \
-    --embed-thumbnail \
-    --live-download-mkv \
-    --sub-format ass \
-    --write-subs \
-    --embed-subs \
-    --remux-video mkv \
-    --check-peertube-instance \
-    --check-mastodon-instance \
-    --sponskrub \
-    --user-agent 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0' "
+alias yt-help="grep yt $HOME/.sh_aliases"
+alias yt-h="grep yt $HOME/.sh_aliases"
+alias yta-help="grep yta $HOME/.sh_aliases"
+alias yta-h="grep yta $HOME/.sh_aliases"
+alias ytv-help="grep ytv $HOME/.sh_aliases"
+alias ytv-h="grep ytv $HOME/.sh_aliases"
+
+alias yta-best="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format best "
+alias yta-flac="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format flac "
+alias yta-opus="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format opus "
+alias yta-vorbis="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format vorbis "
+alias ytv-best="/usr/local/bin/yt-dlp -f bestvideo+bestaudio \
+        --external-downloader curl \
+        --embed-thumbnail \
+        --live-download-mkv \
+        --sub-format ass \
+        --write-subs \
+        --embed-subs \
+        --remux-video mkv \
+        --check-peertube-instance \
+        --check-mastodon-instance \
+        --sponsorblock-mark all \
+        --sponsorblock-remove all \
+        --user-agent 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0' "

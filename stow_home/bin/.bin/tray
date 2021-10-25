@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-timeout 5s trayer --edge top --align right --expand true --width 10 --height 20 --monitor primary
-

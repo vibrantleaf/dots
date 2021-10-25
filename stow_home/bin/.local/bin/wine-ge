@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+baseuri="https://github.com/GloriousEggroll/wine-ge-custom/releases/download"
+latesturi="https://api.github.com/repos/GloriousEggroll/wine-ge-custom/releases/latest"
+dstpath="$HOME/.local/share/lutris/runners/wine/"
+
+
+  latestversion="$(curl -s $latesturi | egrep -m1 "tag_name" | cut -d \" -f4)"
+  if [[ -d $dstpath/Lutris-$latestversion ]]
+  then
+    echo "Lutris-$latestversion is the latest version and is already installed."
+    echo "Exiting..."
+    exit 0
+  else
+    echo "Lutris-$latestversion is the latest version and is not installed yet."
+    echo "Installing Lurtis-$latestverion"
+    url=$(curl -s $latesturi | egrep -m1 "browser_download_url.*.tar.xz" | cut -d \" -f4)
+  fi
+
+rsp="$(curl -sI "$url" | head -1)"
+echo "$rsp" | grep -q 302 || {
+  echo "$rsp"
+  exit 1
+}
+
+[ -d "$dstpath" ] || {
+    mkdir "$dstpath"
+    echo [Info] Created "$dstpath"
+}
+
+#echo $url
+wget "$url" -O $HOME/.cache/lutris-$latestversion.tar.xz
+
+tar xf $HOME/.cache/lutris-$latestversion.tar.xz -C "$dstpath"
+
+rm $HOME/.cache/lutris-$latestversion.tar.xz
