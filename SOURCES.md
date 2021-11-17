@@ -17,4 +17,5 @@
 - [Wolfgang's *(AKA notthebee)* dotfiles](https://github.com/notthebee/dotfiles.git) | no license file provided
 - [Brodie Robertson's dotfiles](https://github.com/BrodieRobertson/dotfiles.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 - [Luke Smith's voidrice](https://github.com/LukeSmithxyz/voidrice.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
-- [base16's xresources](https://github.com/base16-templates/base16-xresources.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- [jameswylde's polybar dracla theme (https://github.com/jameswylde/polybar-dracula/) | [GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)
+- [Dracula Themes](https://github.com/base16-templates/base16-xresources.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)

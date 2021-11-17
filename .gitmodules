@@ -1,0 +1,12 @@
+[submodule "themes/dracula/gtk"]
+	path = themes/dracula/gtk
+	url = https://github.com/dracula/gtk/
+[submodule "themes/dracula/qt5"]
+	path = themes/dracula/qt5
+	url = https://github.com/dracula/qt5
+[submodule "themes/dracula/grub"]
+	path = themes/dracula/grub
+	url = https://github.com/dracula/grub
+[submodule "themes/dracula/firefox"]
+	path = themes/dracula/firefox
+	url = https://github.com/dracula/firefox
