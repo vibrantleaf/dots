@@ -1,22 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-@import url('https://fonts.googleapis.com/css?family=Anton');
-
-body {
-    background-color: #272822 ;
-    margin: 20%
-}
-
-.container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-
-.inline {
+@media only screen  {
+  @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+  body {
+    background: #282A36 ;
+    color: #F8F8F2;
+    margin: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 30px;
+  }
+  h1,h2{
+    border-bottom: 1px solid #4D4D4D ;
+    color: #BD93F9;
+    text-align: center;
+  }
+  h4{
+    color: #BD93F9;
+    text-align: center;
+  }
+  a {
+    color:#50FA7B ;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 2;
+  }
+  .grid-container > div {
+    text-align: center;
+    padding: 5%;
+    color: #FF92D0;
+  }
+  .inline {
     display: inline-block;
+  }
 }
-

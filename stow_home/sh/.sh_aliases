@@ -53,7 +53,7 @@ alias aptclean="sudo  bash $HOME/.bin/aptclean | pv -"
 alias pyaptclean="sudo python3 $HOME/.bin/pyaptclean | pv -"
 
 # java
-alias java="java '$JDK_JAVA_OPTIONS'"
+#alias java="java '$JDK_JAVA_OPTIONS'"
 
 
 # youtube-dl
