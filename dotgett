@@ -13,9 +13,8 @@ menu(){
 	echo "suckmore: download builds of suckless software and place in ~/Git"
 	echo "gitgett:  Get git repos from codeberg and place into ~/git/"
 	echo "stow:     Restore Stow form dots"
-	echo "apps:     Use 'apt' & 'pip3' to install all packges"
+	echo "apts:     Use 'apt' to setup reposs"
 	echo "hug:      We all need one sometimes"
-	echo "systemd:  Set systemd services"
 	echo "syms:     symlink files and folders to the corret places"
 	echo "all:      All of above"
 	echo " "
@@ -25,9 +24,8 @@ menu(){
 
 init(){
 	sudo apt install git ssh wget curl build-essential
-	mkdir ~/Git/bigowo
+	mkdir ~/Git/sealeaf
 	mkdir ~/Git/3rdparty
-	ln -sf ~/Git/bigowo ~/Git/sealeaf
 	mkdir -p ~/.config/mpv/watch_later
 	}
 
@@ -35,7 +33,7 @@ suckmore(){
 	git clone https://codeberg.org/sealeaf/st.git ~/Git/sealeaf/st
 	git clone https://codeberg.org/sealeaf/suckmore.git ~/Git/sealeaf/suckmore
 	}
-	
+
 hug(){
 	    clear
 	    echo " "
@@ -48,7 +46,7 @@ hug(){
 
 dots(){
 		cd ~
-		git clone https://codeberg.org/sealeaf/dots.git ~/Git/sealeaf/dots
+		git clone --remote-submodules --recurse-submodules https://codeberg.org/sealeaf/dots.git ~/Git/sealeaf/dots
 	}
 
 stow(){
@@ -65,27 +63,19 @@ stow(){
      # $ROOT
 	echo "Setting up $ROOT files."
 	sudo cp -v stow_root/bash/root/.bashrc /root/.bashrc
-	sudo cp -v stow_root/zsh/root/.zshrc /root/.zshrc
 	}
 
-apps(){
+apt(){
 	echo "Downloading Sources.list and Sources.list.d/*.list"
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list | sudo tee /etc/apt/sources.list
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/adoptopenjdk.list | sudo tee /etc/apt/sources.list.d/adoptopenjdk.list
-	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/deb-mutimedia.list | sudo tee /etc/apt/sources.list.d/deb-mutimedia.list
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/lutris.list | sudo tee /etc/apt/sources.list.d/lutris.list
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/riot-im.list | sudo tee /etc/apt/sources.list.d/riot-im.list
-	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/spotifty.list | sudo tee /etc/apt/sources.list.d/spotifty.list
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/vscodium.list | sudo tee /etc/apt/sources.list.d/vscodium.list
 	curl https://codeberg.org/sealeaf/dots/raw/branch/main/pkgs/sources.list.d/winehq.list | sudo tee /etc/apt/sources.list.d/winehq.list
 	sudo apt update
 	sudo apt upgrade --fix-broken
 	}
-
-systemd()
-    {
-        sudo systemctl enable --now $(curl https://codeberg.org/sealeaf/dots/raw/branch/main/systemd/serivces.txt)
-    }
 
 syms(){
 	read -p "Are you sure? THIS WILL DELETE MANY THINGS and symlink them to nextcloud folders [y/N]" -n 1 -r
@@ -96,17 +86,17 @@ syms(){
 	fi
 	# The "rm"ing
 	rm -rf ~/{Pictures,Documents,Desktop,Music,Notes,.ssh,Videos,Applications}
-	mkdir /mnt/{games,data,usb,remote}
-	ln -sf /mnt/data/Nextcloud ~/Nextcloud
-	ln -sf /mnt/games/ ~/Games
-	ln -sf /mnt/games/steam ~/.steam
-    ln -sf ~/Nextcloud/Applications ~/Applications
-	ln -sf ~/Nextcloud/Pictures/ ~/Pictures
-	ln -sf ~/Nextcloud/Documents/ ~/Documents
-	ln -sf ~/Nextcloud/Desktop ~/Desktop
-	ln -sf ~/Nextcloud/Downloads ~/Downloads
-	ln -sf ~/Nextcloud/Music ~/Music
-    ln -sf ~/Nextclout/Notes ~/Notes
+	mkdir /mnt/{Games,Data,USB,remote}
+	ln -sf /mnt/Data/Nextcloud ~/Nextcloud
+	ln -sf /mnt/Games/ ~/Games
+	ln -sf /mnt/Games/steam ~/.steam
+    ln -sf /mnt/Data/Nextcloud/Applications ~/Applications
+	ln -sf /mnt/Data/Nextcloud/Pictures/ ~/Pictures
+	ln -sf /mnt/Data/Nextcloud/Documents ~/Documents
+	ln -sf /mnt/Data/Nextcloud/Desktop ~/Desktop
+	ln -sf /mnt/Data/Nextcloud/Downloads ~/Downloads
+	ln -sf /mnt/Data/Nextcloud/Music ~/Music
+    ln -sf /mnt/Data/Nextcloud/Notes ~/Notes
 	# ssh
 	ln -s ~/Nextcloud/.ssh/ ~/.ssh
 	chmod 600 ~/.ssh/id_rsa
@@ -121,8 +111,7 @@ all(){
 	suckmore
 	dots
 	stow
-	apps
-	systemd
+	apt
 	sym
 	hug
 }

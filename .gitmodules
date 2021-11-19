@@ -13,3 +13,6 @@
 [submodule "stow_home/polybar/.config/polybar"]
 	path = stow_home/polybar/.config/polybar
 	url = https://github.com/jameswylde/polybar-dracula
+[submodule "themes/dracula/steam"]
+	path = themes/dracula/steam
+	url = https://github.com/dracula/steam
