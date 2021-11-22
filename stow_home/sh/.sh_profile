@@ -1,5 +1,5 @@
 export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/bin:/usr/lib/jvm/java-16-openjdk/jre/bin/:$PATH"
-export EDITOR="codium'
+export EDITOR="vim"
 export TERMINAL="st"
 export TERMCMD="st"
 export BROWSER="qutebrowser"
