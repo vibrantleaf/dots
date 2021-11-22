@@ -1,4 +1,4 @@
-export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/bin:/usr/lib/jvm/java-16-openjdk/jre/bin/:$PATH"
+export PATH="$HOME/.bin:$HOME/.local/bin:$HOME/.local/scripts:/usr/local/bin:/usr/lib/jvm/java-16-openjdk/jre/bin/:$PATH"
 export EDITOR="vim"
 export TERMINAL="st"
 export TERMCMD="st"
