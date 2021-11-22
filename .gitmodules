@@ -16,3 +16,6 @@
 [submodule "themes/dracula/steam"]
 	path = themes/dracula/steam
 	url = https://github.com/dracula/steam
+[submodule "themes/dracula/icons"]
+	path = themes/dracula/icons
+	url = https://github.com/matheuuus/dracula-icons
