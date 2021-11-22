@@ -19,3 +19,5 @@
 - [Luke Smith's voidrice](https://github.com/LukeSmithxyz/voidrice.git) | [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 - [jameswylde's polybar dracla theme (https://github.com/jameswylde/polybar-dracula/) | [GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.en.html)
 - [Dracula Themes](https://github.com/base16-templates/base16-xresources.git) | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
+- d
+- [AUTOEQ](https://github.com/jaakkopasanen/AutoEq | [MIT License](https://www.mit.edu/~amini/LICENSE.md)
