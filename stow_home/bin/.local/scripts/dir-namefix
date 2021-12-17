@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+for dir in .; do mv "$dir" "${dir// /_}"; done

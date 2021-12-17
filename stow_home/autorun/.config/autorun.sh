@@ -48,16 +48,24 @@ Wallpaper(){
 
 Audio(){
 #pipewire fixes
+    killall -9 mpd > /dev/null &
+    sleep 0.5s
     alsactl init > /dev/null &
     sleep 0.5s
-    systemctl --user stop pipewire-pulse > /dev/null &
+    #systemctl --user stop pipewire-pulse > /dev/null &
     #systemctl --user stop pipewire-jack > /dev/null &
     systemctl --user stop pipewire > /dev/null &
     sleep 0.5s
-    systemctl --user start pipewire-pulse > /dev/null &
+    #systemctl --user start pipewire-pulse > /dev/null &
     #systemctl --user start pipewire-jack > /dev/null &
     systemctl --user start pipewire > /dev/null &
-    #mpd > /dev/null &
+    sleep 0.5s
+    pulseeffects --gapplication-service > /dev/null &
+
+
+    # mpd music play daemon
+    mpd > /dev/null &
+    mpc toggle > /dev/null &
 }
 
 Keyboard_Layout(){
@@ -74,11 +82,15 @@ Misc(){
     #urxvtd > /dev/null &
 
     # for auto mounting
-    udiskie -an > /dev/null &
+    # udiskie -an > /dev/null &
+
+    #
+    /usr/libexec/xapps/sn-watcher/xapp-sn-watcher > /dev/null &
 }
 
 Tray(){
     flameshot > /dev/null &
+    # nextcloud --background > /dev/null &
 }
 
 #AppImages(){
@@ -90,6 +102,7 @@ Display(){
     nv
     RedShift
     Theme
+    # Notify
 }
 
 main(){
@@ -97,8 +110,10 @@ main(){
     Keyboard_Layout
     Audio
     Bluetooth
-
+    Wallpaper
     Tray
+    Misc
+
 }
 
 

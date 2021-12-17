@@ -33,7 +33,7 @@ alias shutdown="sudo poweroff"
 
 # misc
 alias vm="virt-manager"
-alias proton-db-tags="python3 $HOME/.local/bin/proton-db-tags --check-native "
+alias proton-db-tags="python3 $HOME/.local/scripts/proton-db-tags --check-native "
 alias vscodium=codium
 alias vscode=codium
 alias codium='/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/codium --file-forwarding com.vscodium.codium --no-sandbox --new-window'
@@ -49,11 +49,15 @@ alias cmatrix="cmatrix | lolcat"
 alias font-update="fc-cache -fv && sudo fc-cache -fv"
 
 # debian/apt
-alias aptclean="sudo  bash $HOME/.bin/aptclean | pv -"
-alias pyaptclean="sudo python3 $HOME/.bin/pyaptclean | pv -"
+alias aptclean="sudo  bash $HOME/.scripts/aptclean | pv -"
+alias pyaptclean="sudo python3 $HOME/.scripts/pyaptclean | pv -"
 
 # java
 #alias java="java '$JDK_JAVA_OPTIONS'"
+
+
+# discord
+alias discord='discord --no-sandbox'
 
 
 # youtube-dl
@@ -64,10 +68,10 @@ alias yta-h="grep yta $HOME/.sh_aliases"
 alias ytv-help="grep ytv $HOME/.sh_aliases"
 alias ytv-h="grep ytv $HOME/.sh_aliases"
 
-alias yta-best="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format best "
-alias yta-flac="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format flac "
-alias yta-opus="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format opus "
-alias yta-vorbis="/usr/local/bin/youtube-dl --extract-audio --no-keep-video --audio-format vorbis "
+alias yta-best="youtube-dl --extract-audio --no-keep-video --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --no-keep-video --audio-format flac "
+alias yta-opus="youtube-dl --extract-audio --no-keep-video --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --no-keep-video --audio-format vorbis "
 alias ytv-best="/usr/local/bin/yt-dlp -f bestvideo+bestaudio \
         --external-downloader curl \
         --embed-thumbnail \
@@ -78,6 +82,7 @@ alias ytv-best="/usr/local/bin/yt-dlp -f bestvideo+bestaudio \
         --remux-video mkv \
         --check-peertube-instance \
         --check-mastodon-instance \
-        --sponsorblock-mark all \
-        --sponsorblock-remove all \
+        --sponsorblock-mark 'sponsor' \
+        --sponsorblock-remove 'sponsor' \
+        --replace-in-metadata \
         --user-agent 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0' "

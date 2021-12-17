@@ -31,3 +31,5 @@ n ()
     fi
 }
 
+source /home/leaf/Git/3rdParty/alacritty/extra/completions/alacritty.bash
+source ~/.bash_completion/alacritty

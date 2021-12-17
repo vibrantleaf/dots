@@ -1,9 +1,55 @@
-#!/bin/bash
-wallpaperrc=$XDG_CONFIG_DIR/wallpaper/wallpaperrc || wallpaperrc=$HOME/.config/wallpaper/wallpaperrc
-mkdir -p $XDG_CONFIG_DIR/wallpaper/ || mkdir -p $HOME/.config/wallpaper/
-touch $wallpaperrc
-sxiv -trqo $HOME/Pictures/wallpapers | xargs | tee  $wallpaperrc
-feh --bg-fill $(cat $wallpaperrc)
-
-# altternative to feh but has the issue of not liking more than one monitor
-#xwallpaper --output HDMI-0 --zoom $(cat $wallpaper)
+#!/usr/bin/env bash
+#
+#
+##########################################
+# wallpaper-setter by: sealeaf
+# made for: dot files
+# https://codeberg.org/sealeaf/dots
+##########################################
+#
+#
+export ConfRC='$XDG_CONFIG_DIR/wallpaper/wallpaperrc'
+export ConfDir='$XDG_CONFIG_DIR/wallpaper'
+function conf(){
+    if
+        [[ -d $ConfDir ]]
+    then
+        echo 'RC Already Exists'
+        echo 'Sourcing RC'
+        source $ConfRC
+    else
+        mkdir -p $ConfDir
+        touch $ConfRC
+    fi
+    }
+function bgset(){
+    sxiv -trqo $HOME/Pictures/wallpapers >>  $ConfRC
+}
+function feh(){
+    feh --bg-fill $( cat $ConfRC )
+}
+function betterlockscreen(){
+    betterlockscreen -u $( cat $ConfRC )
+}
+function xwallpaper(){
+    # altternative to feh but has the issue of not liking more than one monitor
+    xwallpaper --output $DISPLAY --zoom $( cat $ConfRC )
+}
+function setOpt(){
+    echo 'SetingOption:'
+    echo '$2' >> $ConfRC
+}
+function main(){
+    conf
+    bgset
+}
+function help(){
+    printf '\n'
+    printf 'wallpaper-setter\n  usage: wallapper-setter [OPTION]\n OPTIONS:\n conf:  Will generate rc directory & file.\n setOpt:  setvars\n  set:  Will set your wallpaper using feh.\n xwallpaper:  Will set your wallpaper using xwallpaper See setopt .\n betterlockscreen:  Will set your cached wallpaper for betterlcokscreen.\n '
+    printf '\n'
+}
+if [ -n "$1" ]; then
+      $1
+  else
+    main
+fi

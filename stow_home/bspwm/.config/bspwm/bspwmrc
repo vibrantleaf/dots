@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # BSPWM configuration
 #bspc config border_radius       2
 bspc config border_width         3
@@ -96,13 +96,16 @@ if [ -e "$BSPWM_STATE" ] ; then
 	rm "$BSPWM_STATE"
 fi
 
-# cursor fix
+# Cursor Fix
 xsetroot -cursor_name left_ptr
 
-# keyboard daemon
+# Keyboard Daemon
 sxhkd &
 
-# autostart
-bash -c $HOME/.config/autorun.sh &
+# Bar
+$HOME/.config/polybar/launch.sh &
+
+# AutoRun
+$HOME/.config/autorun.sh &
 
 

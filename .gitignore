@@ -1,12 +1,29 @@
-stow_home/mpv/.config/mpv/watch_later
+# PyCache
 stow_home/bin/.bin/__pycache__
 stow_home/qtile/.config/qtile/__pycache__
 stow_home/tint2/.config/tint2/tint2rc.back*
+
+# ZSH
 stow_home/zsh/.oh-my-zsh
 stow_home/zsh/.oh-my-zsh
+
+# MISC
 stow_home/glasscord
-.DS_Store
+*/.DS_Store
 *.py[cod]
 *$py.class
+
+# packages
 pkgs/sources.list.d/*.list.save
 pkgs/sources.list.save
+
+# MPV
+stow_home/mpv/.config/mpv/watch_later
+
+# MPD
+stow_home/mpd/.config/mpd/db
+stow_home/mpd/.config/mpd/playlists/
+stow_home/mpd/.config/mpd/playlists/*
+stow_home/mpd/.config/mpd/pid
+stow_home/mpd/.config/mpd/state
+stow_home/mpd/.config/mpd/sticker.sql

@@ -14,5 +14,5 @@ HISTSIZE=20000
 PS1="$(echo -e "\033[34m~ \033[00m")"
 
 # Make KSH Look nicer
-
+ghosts
 pfetch

@@ -11,41 +11,41 @@ Print
   flameshot gui
 
 # lockscreen
-super + Pause
-    betterlockscreen --lock dim
+superi + alt + Pause
+    betterlockscreen --lock --display DP-4
 
 ## Termianl
 # term
 super + Return
-    st -e tmux
+    alacritty --class "Term1" -e tmux
 
 # nnn
 super + e
-   st --class "nnn" -e nnn -Rd
+   alacritty --class "nnn" -e nnn -Rd
 
 # newsboat
 super + n
-   st --class "newsboat" -e newsboat
+   alacritty --class "newsboat" -e newsboat
 
 # htop
 super + p
-    st --class "bashtop" -e bashtop
+    alacritty --class "top" -e bashtop
 
 # pulse mixer
 super + m
-    st --class "pulsemixer" -e pulsemixer
+    alacritty --class "pulsemixer" -e pulsemixer
 
 # discord
 super + d
-    discord || Discord || $HOME/.bin/discord || $HOME/Applications/Discord/Discord
+    flatpak run com.discord.Discord
 
 # lutris
 super + {_,control,alt,shift} + s
-    /bin/usr/sh -C {steam.lutris,itch,minigalaxy}
+     {steam.lutris,itch,minigalaxy}
 
 # webbrowser
 super + w
-    qutebrowser
+    qutebrowser || firefox
 
 # reload sxhkd:
 super + alt + r
