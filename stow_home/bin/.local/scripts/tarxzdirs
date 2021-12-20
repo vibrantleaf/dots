@@ -6,6 +6,6 @@ do
     then
         echo ${base}.tar.xz exists Skipping ...
     else
-        tar -cJvf "${base}.tar.xz" "$dir"
+        XZ_OPT=-e9T0 tar -cJvf "${base}.tar.xz" "$dir"
     fi
 done
