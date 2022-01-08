@@ -14,7 +14,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 
-#vim/nvim
+# vim/nvim
 #alias vim="nvim"
 #alias vi="nvim"
 alias vi="vim"
@@ -23,16 +23,22 @@ alias vi="vim"
 alias make="make -j12 --max-load=12 "
 
 # doas/sudo
-alias doas="doas -- "
-alias plz="sudo -- !! "
-alias sudo="sudo -- "
-alias reboot="sudo reboot"
-alias poweroff="sudo poweroff"
-alias shutdown="sudo poweroff"
+alias plz="doas !! "
+alias sudo="doas "
+
+alias reboot="doas reboot"
+alias poweroff="doas poweroff"
+alias shutdown="doas poweroff"
+
+#alias sudo="sudo -- "
+#alias plz="sudo -- !! "
+
+#alias reboot="sudo reboot"
+#alias poweroff="sudo poweroff"
+#alias shutdown="sudo poweroff"
 
 
 # misc
-alias vm="virt-manager"
 alias proton-db-tags="python3 $HOME/.local/scripts/proton-db-tags --check-native "
 alias vscodium=codium
 alias vscode=codium
@@ -46,19 +52,17 @@ alias ascii="asciiquarium"
 alias cmatrix="cmatrix | lolcat"
 
 # font
-alias font-update="fc-cache -fv && sudo fc-cache -fv"
+alias font-update="fc-cache -fv ; sudo fc-cache -fv"
 
 # debian/apt
 alias aptclean="sudo  bash $HOME/.scripts/aptclean | pv -"
 alias pyaptclean="sudo python3 $HOME/.scripts/pyaptclean | pv -"
 
 # java
-#alias java="java '$JDK_JAVA_OPTIONS'"
-
+alias java="java '$JDK_JAVA_OPTIONS'"
 
 # discord
 alias discord='discord --no-sandbox'
-
 
 # youtube-dl
 alias yt-help="grep yt $HOME/.sh_aliases"
