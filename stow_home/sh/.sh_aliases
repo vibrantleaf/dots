@@ -19,7 +19,7 @@ alias ....="cd ../../.."
 #alias vi="nvim"
 alias vi="vim"
 
-# dev
+# PKG-MGRs/BUILD
 alias make="make -j12 --max-load=12 "
 
 # doas/sudo
@@ -29,6 +29,8 @@ alias sudo="doas "
 alias reboot="doas reboot"
 alias poweroff="doas poweroff"
 alias shutdown="doas poweroff"
+alias yay="yay --sudo doas --sudoflags -- --save "
+
 
 #alias sudo="sudo -- "
 #alias plz="sudo -- !! "
