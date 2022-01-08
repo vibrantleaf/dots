@@ -5,8 +5,10 @@ Just my dot files.
 
 ### How to install
  1. Install debian stable
- 2. Run `bash -C $(curl https://codeberg.org/sealeaf/dots/src/branch/main/dotgett)`
- 3. enjoy
+ 2. `git clone https://codeberg.org/sealeaf/dots`
+ 3. `cd stow_home ; stow -n -vt ~ *` # fix errors
+ 4. `stow -vt ~ *`
+ 5. enjoy
 
 ### More
 [LICENSE](https://codeberg.org/sealeaf/dots/src/branch/main/LICENSE.txt)
